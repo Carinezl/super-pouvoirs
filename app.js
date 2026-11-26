@@ -133,7 +133,7 @@
       say(text) { const s = $("sayText"); if (s) s.textContent = text; },
       pause: (text) => Math.min(6500, 1300 + text.length * 60),
       later(fn, ms) { setTimeout(() => { if (id === runId && dlg.open) fn(); }, ms); },
-      markDone() { const n = current.n; if (!save.done.includes(n)) { save.done.push(n); persist(); } renderTiles(); $("powerText").textContent = `Pouvoir gagné : ${current.day.p}`; },
+      markDone() { const n = current.n; if (!save.done.includes(n)) { save.done.push(n); persist(); } renderTiles(); const pt = $("powerText"); if (pt) pt.textContent = `Pouvoir gagné : ${current.day.p}`; },
       types: { creator: stageCreator, diploma: stageDiploma }
     };
   }
@@ -146,12 +146,12 @@
       ? [{ type: "creator" }, { type: "doit", btn: "Je l'ai dit !", steps: [
           { i: "💛", l: "« Mon corps est mon trésor ! »", say: "Mets ta main sur ton cœur et dis très fort :" },
           { i: "💪", l: "« C'est mon corps. C'est moi qui décide. »", say: "Et maintenant, encore plus fort :" }] }]
-      : (!replay && RECALL[n] ? [Object.assign({ type: "recall" }, RECALL[n])] : []).concat(GAMES[n]);
+      : (!replay && RECALL[n] ? [Object.assign({ type: "recall", noSkip: n === 24 }, RECALL[n])] : []).concat(GAMES[n]);
     Jeux.run(stages, mount, ctx, () => {
       const first = !save.done.includes(n);
       if (first) { save.done.push(n); persist(); }
       renderTiles(); renderHero();
-      if (n !== 0) $("powerText").textContent = `Pouvoir gagné : ${day.p}`;
+      if ($("powerText")) $("powerText").textContent = `Pouvoir gagné : ${day.p}`;
       const who = save.hero && save.hero.name ? " " + save.hero.name : "";
       const bravo = n === 0 ? `Bienvenue${who}\u00a0! C'est parti pour l'aventure\u00a0!` : `Bravo ! Tu as gagné le pouvoir : ${day.p} !`;
       mount.innerHTML = `<div class="win-screen">${n === 0 ? "" : `<div class="stars">${STAR}${STAR}${STAR}</div><strong>${first ? "Bravo !" : "Encore bravo !"}</strong><p>Tu as gagné le pouvoir « ${day.p} ».</p>`}
@@ -172,7 +172,7 @@
     if (tab === "kid") {
       $("dlgPanel").innerHTML = `<div class="say">${guide()}<p class="bubble" id="sayText" aria-live="polite"></p></div>
         <div id="gameMount"></div>
-        ${current.n === 0 ? "" : `<div class="power">${STAR}<span id="powerText">${done ? "Pouvoir gagné" : "Pouvoir à gagner"} : ${d.p}</span></div>`}`;
+        ${current.n === 0 || current.n === 24 ? "" : `<div class="power">${STAR}<span id="powerText">${done ? "Pouvoir gagné" : "Pouvoir à gagner"} : ${d.p}</span></div>`}`;
       startGame();
     } else {
       $("dlgPanel").innerHTML = `<div class="say adult">${compSVG("owl")}<div class="bubble owl"><h3>Objectif du jour</h3><p>${d.o}</p></div></div>
@@ -287,11 +287,11 @@
         <path d="M57 664Q300 622 560 652T1066 640V737H57z" fill="#dff0ff"/>
         ${tree(96, 668, 1, "#ff7ac0")}${tree(150, 690, .7, "#ffd400")}${tree(1040, 640, .8, "#19c6a7")}
       </g>
-      <polygon points="226,34 897,34 962,150 161,150" fill="#ff3b2f"/><polygon points="226,34 897,34 962,150 161,150" fill="url(#d-tiles)"/>
-      <rect x="212" y="20" width="699" height="28" rx="14" fill="#fff"/><rect x="143" y="138" width="837" height="24" rx="12" fill="#fff"/>
+      <path d="M244 30H879a18 18 0 0 1 16 9L962 150H161L228 39a18 18 0 0 1 16 -9z" fill="#ff3b2f"/><path d="M244 30H879a18 18 0 0 1 16 9L962 150H161L228 39a18 18 0 0 1 16 -9z" fill="url(#d-tiles)"/>
+      <rect x="143" y="138" width="837" height="24" rx="12" fill="#fff"/>
       <circle cx="300" cy="160" r="9" fill="#fff"/><circle cx="560" cy="162" r="10" fill="#fff"/><circle cx="820" cy="160" r="8" fill="#fff"/>
       <text x="561" y="112" text-anchor="middle" font-family="'Bricolage Grotesque', sans-serif" font-weight="800" font-size="46" letter-spacing="-1" fill="#fff">Diplôme des <tspan fill="#ffd400">super-pouvoirs</tspan></text>
-      <svg x="170" y="2" width="62" height="35" viewBox="0 0 78 44"><use href="#c-robin"/></svg>
+      <svg x="252" y="-3" width="62" height="35" viewBox="0 0 78 44"><use href="#c-robin"/></svg>
 
       <path d="M108 566V340a132 132 0 0 1 264 0v226z" fill="#ffd400"/>
       <path d="M124 566V340a116 116 0 0 1 232 0v226z" fill="#1d2fa8"/><path d="M124 566V340a116 116 0 0 1 232 0v226z" fill="url(#d-dots)"/>

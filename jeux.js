@@ -385,7 +385,7 @@ const Jeux = (function () {
       else { shake(b); ctx.say("Presque ! Essaie encore."); }
     }; });
     const skip = el("button", "ghost blue", "Passer directement au jeu du jour"); skip.onclick = () => { if (!lock) { lock = true; end(); } };
-    const row = el("div", "center"); row.append(skip); m.append(box, row);
+    const row = el("div", "center"); row.append(skip); m.append(box); if (!st.noSkip) m.append(row); // le jour du diplôme, le rappel ne se passe pas
   };
 
   // Plusieurs réponses possibles, toutes justes : l'enfant touche ce qu'il reconnaît, puis valide.
