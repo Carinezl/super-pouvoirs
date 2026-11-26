@@ -1,0 +1,16 @@
+{
+  "name": "Le calendrier des super-pouvoirs",
+  "short_name": "Super-pouvoirs",
+  "description": "Un calendrier de l'avent pour aborder en famille les sujets liés au corps et au consentement. Derrière chaque fenêtre, un jeu à faire avec l'enfant de 3 à 6 ans et une fiche pratique pour l'adulte.",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#141f7a",
+  "theme_color": "#1d2fa8",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
