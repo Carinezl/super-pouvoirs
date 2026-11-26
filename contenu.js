@@ -70,7 +70,7 @@ const DAYS = [
     o: "Réviser l'essentiel, et retenir qu'un enfant a le droit d'être protégé et n'est jamais fautif.", age: "Six questions : à 3 ans, faites le quiz en deux fois.", jour: "Demandez-lui ce que le calendrier lui a appris de plus important.", compris: "Votre enfant retrouve plusieurs messages : mon corps est à moi, j'ai le droit de dire non, j'en parle.", parler: ["La Convention internationale des droits de l'enfant protège chaque enfant contre toutes les violences.", "Le 119 s'appelle aussi quand on est témoin."],
     plus: "« Interdit de me faire MAL », Mai Lan Chapiron. Coloriages gratuits « Ta voix compte ! » de Mille Miettes.", eviter: "Gronder ou punir un enfant parce qu'il a parlé : il ne doit jamais regretter de s'être confié." },
   { t: "Le grand diplôme", p: "Super-pouvoirs réunis", c: "Bravo ! Tu as gagné tous tes super-pouvoirs. Voici ton diplôme des super-pouvoirs !",
-    o: "Fêter le chemin parcouru et donner envie de continuer à en parler toute l'année.", jour: "Affichez le diplôme et la main de confiance, et relisez un album de temps en temps.", compris: "Votre enfant reparle de ce qu'il a appris sans qu'on le lui demande.", parler: ["Affichez la main de confiance et le diplôme dans la chambre.", "Relisez un album par mois."] }
+    o: "Fêter le chemin parcouru et donner envie de continuer à en parler toute l'année.", compris: "Votre enfant reparle de ce qu'il a appris sans qu'on le lui demande.", parler: ["Félicitez votre enfant pour tout le chemin parcouru.", "Affichez le diplôme dans sa chambre, et relisez un album de temps en temps."] }
 ];
 
 const INFO = {
