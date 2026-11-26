@@ -575,3 +575,9 @@ footer{max-width:820px;gap:12px}
 }
 .about{align-items:center}
 .about .copy{font-size:13px;font-weight:600;color:#5c6699}
+
+/* Fleur : elle part petite et grandit franchement pendant les 4 secondes d'inspiration */
+@keyframes lean{0%{transform:scale(.5) rotate(0)}100%{transform:scale(1.25) rotate(3deg)}}
+.flower .head{transform:scale(.5)}
+.flower-stage.in .head{animation:lean 4s cubic-bezier(.35,0,.55,1) forwards}
+.flower-stage.out .head{transform:scale(1.25) rotate(3deg)}
