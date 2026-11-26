@@ -323,17 +323,66 @@
       .diploma-svg{display:block;width:100vw;height:100vh}
       .bar{position:fixed;top:12px;right:12px;display:flex;gap:8px}
       .bar button{min-height:48px;padding:0 22px;border:0;border-radius:999px;background:#ffd400;color:#2a1b00;font:800 17px Nunito,sans-serif;cursor:pointer;box-shadow:0 5px 0 #b38f00}
-      @media print{.bar{display:none}.diploma-svg{width:297mm;height:210mm}}</style></head>
+      @media print{.bar{display:none}html,body{height:auto;overflow:hidden}.page{display:block;height:auto;overflow:hidden;break-inside:avoid;page-break-inside:avoid}.diploma-svg{width:100%;height:auto;max-height:200mm}}</style></head>
       <body>${symbols}<div class="page">${diplomaSVG()}</div>
       <div class="bar"><button type="button" onclick="window.print()">Imprimer</button><button type="button" onclick="window.close()">Fermer</button></div></body></html>`);
     w.document.close();
     const go = () => setTimeout(() => { w.focus(); w.print(); }, 300);
     if (w.document.fonts && w.document.fonts.ready) w.document.fonts.ready.then(go); else w.onload = go;
   }
+  // ---------- Diplôme en image (à enregistrer ou à partager) ----------
+  // Le dessin est rendu autonome (personnages et polices inclus), puis converti en image PNG.
+  const b64 = (buf) => { let s = ""; const u = new Uint8Array(buf); for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode.apply(null, u.subarray(i, i + 0x8000)); return btoa(s); };
+  let fontCss = null;
+  async function embeddedFonts() {
+    if (fontCss) return fontCss;
+    const faces = [["Bagel Fat One", "400", "fonts/bagel-fat-one-latin-1.woff2"], ["Bricolage Grotesque", "200 800", "fonts/bricolage-grotesque-latin-1.woff2"], ["Nunito", "200 1000", "fonts/nunito-latin-1.woff2"]];
+    const parts = await Promise.all(faces.map(async ([fam, w, url]) => `@font-face{font-family:'${fam}';font-weight:${w};src:url(data:font/woff2;base64,${b64(await (await fetch(url)).arrayBuffer())}) format('woff2')}`));
+    return (fontCss = parts.join(""));
+  }
+  async function diplomaPNG() {
+    const symbols = document.querySelector('svg[width="0"]').innerHTML;
+    const svg = diplomaSVG().replace(/<svg class="diploma-svg"/, '<svg width="2246" height="1588"').replace("<defs>", `<defs><style>${await embeddedFonts()}</style>${symbols}`);
+    const url = URL.createObjectURL(new Blob([svg], { type: "image/svg+xml;charset=utf-8" }));
+    try {
+      const img = new Image(); img.decoding = "sync";
+      await new Promise((ok, ko) => { img.onload = ok; img.onerror = () => ko(new Error("image")); img.src = url; });
+      await new Promise((r) => setTimeout(r, 120)); // laisse aux polices incluses le temps de s'appliquer (Safari)
+      const c = document.createElement("canvas"); c.width = 2246; c.height = 1588;
+      c.getContext("2d").drawImage(img, 0, 0, 2246, 1588);
+      const blob = await new Promise((ok) => c.toBlob(ok, "image/png"));
+      if (!blob) throw new Error("png");
+      return new File([blob], "diplome-super-pouvoirs.png", { type: "image/png" });
+    } finally { URL.revokeObjectURL(url); }
+  }
   function stageDiploma(st, m, ctx) {
-    m.innerHTML = `<div class="diploma-prev">${diplomaSVG()}</div><div class="center"><button type="button" class="cta" id="printBtn">Imprimer mon diplôme</button></div>`;
+    m.innerHTML = `<div class="diploma-prev">${diplomaSVG()}</div>
+      <div class="center"><button type="button" class="cta" id="printBtn">Imprimer mon diplôme</button></div>
+      <div class="center dipl-more"><button type="button" class="ghost" id="saveBtn">Enregistrer l'image</button><button type="button" class="ghost" id="shareBtn" hidden>Partager</button></div>`;
     ctx.say("Bravo ! Tu as ouvert toutes les fenêtres. Voici ton diplôme des super-pouvoirs !");
     $("printBtn").onclick = () => { ctx.markDone(); printDiploma(); };
+    // L'image est préparée dès l'affichage : au clic, l'enregistrement ou le partage partent sans attente.
+    const ready = diplomaPNG(); ready.catch(() => {});
+    const fail = () => toast("L'image n'a pas pu être créée sur cet appareil. Essayez l'impression.");
+    $("saveBtn").onclick = async () => {
+      ctx.markDone();
+      try {
+        const file = await ready, url = URL.createObjectURL(file), a = document.createElement("a");
+        a.href = url; a.download = file.name; document.body.append(a); a.click(); a.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 4000);
+        toast("Diplôme enregistré dans vos téléchargements.");
+      } catch (e) { fail(); }
+    };
+    ready.then((file) => {
+      const sb = $("shareBtn");
+      if (!sb || !navigator.canShare || !navigator.canShare({ files: [file] })) return;
+      sb.hidden = false;
+      sb.onclick = async () => {
+        ctx.markDone();
+        try { await navigator.share({ files: [file], title: "Mon diplôme des super-pouvoirs" }); }
+        catch (e) { if (e && e.name !== "AbortError") fail(); }
+      };
+    }).catch(() => {});
   }
 
   // ---------- Message court ----------
