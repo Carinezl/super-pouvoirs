@@ -587,3 +587,7 @@ footer{max-width:820px;gap:12px}
 .dipl-actions{gap:12px;align-items:center}
 .cta.alt{background:#fff;color:var(--cobalt);box-shadow:0 6px 0 #c9cff0}
 @media (max-width:520px){.dipl-actions .cta{min-height:48px;font-size:16px;padding:0 18px}}
+/* Page d'accueil : moins de blanc entre la maison, le bouton et les blocs du bas */
+.cover-cta{margin-top:-22px;padding:0 16px 24px;gap:8px}
+@media (max-width:520px){.cover-cta{margin-top:-8px;padding-bottom:20px}}
+#cover{z-index:2}
