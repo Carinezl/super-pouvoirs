@@ -357,8 +357,7 @@
   }
   function stageDiploma(st, m, ctx) {
     m.innerHTML = `<div class="diploma-prev">${diplomaSVG()}</div>
-      <div class="center"><button type="button" class="cta" id="printBtn">Imprimer mon diplôme</button></div>
-      <div class="center dipl-more"><button type="button" class="ghost" id="saveBtn">Enregistrer l'image</button><button type="button" class="ghost" id="shareBtn" hidden>Partager</button></div>`;
+      <div class="center dipl-actions"><button type="button" class="cta" id="printBtn">Imprimer mon diplôme</button><button type="button" class="cta alt" id="saveBtn">Enregistrer l'image</button><button type="button" class="cta alt" id="shareBtn" hidden>Partager</button></div>`;
     ctx.say("Bravo ! Tu as ouvert toutes les fenêtres. Voici ton diplôme des super-pouvoirs !");
     $("printBtn").onclick = () => { ctx.markDone(); printDiploma(); };
     // L'image est préparée dès l'affichage : au clic, l'enregistrement ou le partage partent sans attente.
