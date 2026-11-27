@@ -150,7 +150,7 @@
       say(text) { const s = $("sayText"); if (s) s.textContent = text; },
       pause: (text) => Math.min(6500, 1300 + text.length * 60),
       later(fn, ms) { setTimeout(() => { if (id === runId && dlg.open) fn(); }, ms); },
-      markDone() { const n = current.n; if (!save.done.includes(n)) { save.done.push(n); persist(); } renderTiles(); const pt = $("powerText"); if (pt) pt.textContent = `Pouvoir gagné : ${current.day.p}`; },
+      markDone() { const n = current.n; if (!save.done.includes(n)) { save.done.push(n); persist(); justWon = n; } renderTiles(); const pt = $("powerText"); if (pt) pt.textContent = `Pouvoir gagné : ${current.day.p}`; },
       types: { creator: stageCreator, diploma: stageDiploma }
     };
   }
@@ -166,12 +166,13 @@
       : (!replay && RECALL[n] ? [Object.assign({ type: "recall", noSkip: n === 24 }, RECALL[n])] : []).concat(GAMES[n]);
     Jeux.run(stages, mount, ctx, () => {
       const first = !save.done.includes(n);
+      if (first && n >= 1) justWon = n;
       if (first) { save.done.push(n); persist(); }
       renderTiles(); renderHero();
       if ($("powerText")) $("powerText").textContent = `Pouvoir gagné : ${day.p}`;
       const who = save.hero && save.hero.name ? " " + save.hero.name : "";
       const bravo = n === 0 ? `Bienvenue${who}\u00a0! C'est parti pour l'aventure\u00a0!` : `Bravo ! Tu as gagné le pouvoir : ${day.p} !`;
-      mount.innerHTML = `<div class="win-screen">${n === 0 ? "" : `<div class="stars">${STAR}${STAR}${STAR}</div><strong>${first ? "Bravo !" : "Encore bravo !"}</strong><p>Tu as gagné le pouvoir « ${day.p} ».</p>`}
+      mount.innerHTML = `<div class="win-screen">${n === 0 ? "" : `<div class="stars">${STAR}${STAR}${STAR}</div><strong>${first ? "Bravo !" : "Encore bravo !"}</strong>`}
         <div class="center"><button type="button" class="ghost" id="replayBtn">${n === 0 ? "Modifier mon personnage" : "Rejouer"}</button><button type="button" class="cta" id="backBtn">${n === 0 ? "Aller vers la maison" : "Retour à la maison"}</button></div></div>`;
       mount.classList.toggle("compact", n === 0); // pas de grand vide sous les deux boutons de l'étape 0
       ctx.say(bravo);
@@ -189,7 +190,7 @@
     if (tab === "kid") {
       $("dlgPanel").innerHTML = `<div class="say">${guide()}<p class="bubble" id="sayText" aria-live="polite"></p></div>
         <div id="gameMount"></div>
-        ${current.n === 0 || current.n === 24 ? "" : `<div class="power">${STAR}<span id="powerText">${done ? "Pouvoir gagné" : "Pouvoir à gagner"} : ${d.p}</span></div>`}`;
+        ${current.n === 0 || current.n === 24 ? "" : `<div class="power"><i class="badge on" aria-hidden="true" style="background:${BADGE_COLS[(current.n - 1) % BADGE_COLS.length]}"></i><span id="powerText">${done ? "Pouvoir gagné" : "Pouvoir à gagner"} : ${d.p}</span></div>`}`;
       startGame();
     } else {
       $("dlgPanel").innerHTML = `<div class="say adult">${compSVG("owl")}<div class="bubble owl"><h3>Objectif du jour</h3><p>${d.o}</p></div></div>
@@ -231,7 +232,33 @@
   $("tabAdult").addEventListener("click", () => showTab("adult"));
   $("dlgClose").addEventListener("click", () => dlg.close());
   dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
-  dlg.addEventListener("close", () => { runId++; });
+  dlg.addEventListener("close", () => { runId++; if (justWon) { const n = justWon; justWon = 0; flyToBadge(n); } });
+
+  // La pastille du pouvoir gagné s'envole jusqu'à sa place dans la frise.
+  let justWon = 0;
+  function flyToBadge(n) {
+    const badge = $("badges").children[n - 1];
+    if (!badge || $("house").hidden) return;
+    const calm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    badge.classList.add("wait");
+    badge.scrollIntoView({ behavior: calm ? "auto" : "smooth", block: "center" });
+    setTimeout(() => {
+      const land = () => { badge.classList.remove("wait"); badge.classList.add("pop"); setTimeout(() => badge.classList.remove("pop"), 900); };
+      if (calm || !badge.animate) return land();
+      const r = badge.getBoundingClientRect(), size = 64;
+      const fly = document.createElement("i");
+      fly.className = "badge on fly"; fly.style.background = BADGE_COLS[(n - 1) % BADGE_COLS.length];
+      fly.style.left = (innerWidth / 2 - size / 2) + "px"; fly.style.top = (innerHeight * 0.28) + "px";
+      document.body.append(fly);
+      const dx = r.left + r.width / 2 - innerWidth / 2, dy = r.top + r.height / 2 - (innerHeight * 0.28 + size / 2);
+      fly.animate([
+        { transform: "translate(0,0) scale(.2)", opacity: 0 },
+        { transform: "translate(0,0) scale(1.15)", opacity: 1, offset: 0.25 },
+        { transform: "translate(0,0) scale(1)", opacity: 1, offset: 0.4 },
+        { transform: `translate(${dx}px,${dy}px) scale(${r.width / size})`, opacity: 1 }
+      ], { duration: 1300, easing: "cubic-bezier(.5,0,.3,1)" }).onfinish = () => { fly.remove(); land(); };
+    }, calm ? 0 : 550);
+  }
   $("step0Btn").addEventListener("click", () => openDay(0));
   document.querySelectorAll("[data-info]").forEach((b) => b.addEventListener("click", () => openInfo(b.dataset.info)));
 

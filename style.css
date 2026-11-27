@@ -617,3 +617,15 @@ footer{max-width:820px;gap:12px}
 .sec.s4{background:#f1edff}
 /* Message d'information : lisible sur plusieurs lignes */
 #toast{border-radius:20px;max-width:min(560px,calc(100% - 32px));width:max-content;line-height:1.4;text-wrap:balance}
+
+/* Bandeau du pouvoir : centré, à la largeur du texte, avec la pastille de la frise */
+.power{align-self:center;display:inline-flex;flex-wrap:nowrap;gap:10px;max-width:100%;padding:8px 18px 8px 12px;border-radius:999px}
+.power span{flex:0 1 auto}
+.power .badge{flex:0 0 24px;width:24px;height:24px;border:3px solid #fff;box-shadow:none;cursor:default}
+.power .badge::after{display:none}
+/* Pastille qui rejoint la frise après une victoire */
+.badge.wait{background:#eef0fb !important;border:2px dashed #7d88cb;box-shadow:none}
+.badge.fly{position:fixed;z-index:50;width:64px;height:64px;border:6px solid #fff;box-shadow:0 0 0 4px var(--cobalt),0 10px 24px rgba(5,10,60,.35);pointer-events:none}
+.badge.fly::after{display:none}
+@keyframes badgePop{0%{transform:scale(1)}35%{transform:scale(1.7)}70%{transform:scale(.9)}100%{transform:scale(1)}}
+.badge.pop{animation:badgePop .8s ease-out;z-index:3}
