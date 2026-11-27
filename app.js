@@ -103,7 +103,7 @@
     const n = +b.dataset.day;
     if (!isOpenDay(n)) {
       b.classList.remove("shake"); void b.offsetWidth; b.classList.add("shake");
-      toast(`Patience ! Cette fenêtre s'ouvre le ${n === 1 ? "1er" : n} décembre.`);
+      toast(`Patience ! Cette fenêtre s'ouvre le ${n === 1 ? "1er" : n} décembre. Si vous voulez débloquer dès à présent toutes les fenêtres, cliquez sur « Réglages » dans le menu.`, 7000);
       return;
     }
     openDay(n);
@@ -386,11 +386,11 @@
 
   // ---------- Message court ----------
   let toastTimer;
-  function toast(msg) {
+  function toast(msg, ms) {
     const t = $("toast");
     (dlg.open ? dlg : document.body).appendChild(t); // reste visible au-dessus de la fenêtre ouverte
     t.textContent = msg; t.classList.add("show");
-    clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("show"), 3200);
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("show"), ms || 3200); // les messages longs restent plus longtemps
   }
 
   // ---------- Musique de Noël ----------
