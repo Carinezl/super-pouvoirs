@@ -97,9 +97,9 @@ const GAMES = {
       { q: "Est-ce qu'on se moque du corps de quelqu'un ?", fb: "Jamais ! Bravo.", opts: [
         { i: "🙅", l: "Non, jamais", ok: true }, { i: "😜", l: "Oui, c'est rigolo", fb: "Ça fait de la peine. Essaie encore !" }] }] }],
 
-  6: [{ type: "quiz", rounds: [
-      { q: "Tu as un bobo. Un adulte qui s'occupe de toi veut te mettre de la crème. Que doit d'abord faire l'adulte ?", fb: "Oui ! Il explique, et il demande : « Tu es d'accord ? »", opts: [
-        { i: "💬", l: "Il explique et il demande", ok: true }, { i: "🤐", l: "Il le fait sans rien dire", fb: "Un soin, ça s'explique d'abord. Regarde l'autre réponse." }] },
+  6: [{ type: "order", q: "Tu as un bobo. Un adulte qui s'occupe de toi veut te mettre de la crème. Que se passe-t-il d'abord ? Touche les images dans le bon ordre.", items: [
+      { i: "💬", l: "On m'explique" }, { i: "🙋", l: "On me demande si je suis d'accord" }, { i: "🩹", l: "On me met la crème" }] },
+    { type: "quiz", rounds: [
       { q: "Tu as compris. Mais tu préfères mettre la crème toi-même. Est-ce que tu peux le dire ?", fb: "Oui ! Tu peux dire : « Je préfère le faire moi-même. »", opts: [
         { i: "🙋", l: "Oui, je peux le dire", ok: true }, { i: "🙊", l: "Non, je dois me taire", fb: "Tu as le droit de dire ce que tu préfères. Choisis l'autre réponse." }] },
       { q: "Chez le docteur. Le docteur doit regarder là où tu as mal. Qu'est-ce qui t'aide à te sentir bien ?", fb: "Oui ! Un adulte de confiance est à côté de toi, et le docteur explique ce qu'il fait.", opts: [
@@ -136,7 +136,10 @@ const GAMES = {
         { i: "👋", l: "Un coucou" }, { i: "🙂", l: "Un sourire" }, { i: "🙌", l: "Un check" }, { i: "😙", l: "Un bisou qui vole" }] },
       { q: "Quelqu'un veut un bisou, mais tu n'as pas envie. Que peux-tu faire ?", fb: "Oui ! Il y a plein d'autres façons de dire bonjour. Personne ne peut t'obliger à faire un bisou.", opts: [
         { i: "😙", l: "Envoyer un bisou qui vole", ok: true }, { i: "👋", l: "Faire coucou de la main", ok: true }, { i: "🙂", l: "Faire un sourire", ok: true },
-        { i: "😣", l: "Faire le bisou quand même", fb: "Personne ne peut t'obliger. Choisis une autre façon de dire bonjour !" }] }] }],
+        { i: "😣", l: "Faire le bisou quand même", fb: "Personne ne peut t'obliger. Choisis une autre façon de dire bonjour !" }] },
+      { q: "Et maintenant, à toi de jouer ! Choisis comment tu veux dire bonjour à l'adulte qui est avec toi.", any: true, fb: "Super choix ! C'est toi qui choisis.", opts: [
+        { i: "😘", l: "Un bisou" }, { i: "🤗", l: "Un câlin" }, { i: "🙌", l: "Un check" }, { i: "👋", l: "Un coucou" }, { i: "😙", l: "Un bisou qui vole" }] }] },
+    { type: "doit", btn: "On l'a fait !", steps: [{ i: "👋", l: "On se dit bonjour en vrai !", say: "Faites-le en vrai, tous les deux !" }] }],
 
   9: [{ type: "sort", q: "Cette personne veut te faire un câlin. Doit-elle d'abord s'assurer que tu es d'accord ?", q2: "Et cette personne ?", bins: [{ i: "👍", l: "Oui" }, { i: "👎", l: "Non" }], cards: [
       { i: "🏠", l: "Un adulte qui s'occupe de moi tous les jours", q: "Cette personne veut te faire un câlin. Doit-elle d'abord s'assurer que tu es d'accord ?", bin: 0, fb: "Oui. Même les adultes qui s'occupent de toi. Et tu peux dire non." },
@@ -329,7 +332,18 @@ const Jeux = (function () {
   const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; if (tag === "button") e.type = "button"; return e; };
   const shuffle = (a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
   const shake = (b) => { b.classList.remove("no"); void b.offsetWidth; b.classList.add("no"); };
-  const dots = (i, n) => Object.assign(el("div", "dots", Array.from({ length: n }, (_, k) => `<i class="${k < i ? "on" : k === i ? "cur" : ""}"></i>`).join("")), { ariaHidden: "true" });
+  // Cercles de progression. Avec « go », les questions déjà vues (en vert) sont des boutons : on peut y revenir,
+  // puis reprendre là où l'on s'était arrêté (max = la question la plus avancée atteinte).
+  const dots = (i, n, max, go) => {
+    const far = Math.max(i, max || 0);
+    const d = el("div", "dots", Array.from({ length: n }, (_, k) => {
+      const cls = k === i ? "cur" : k < far ? "on" : k === far ? "next" : "";
+      return go && k !== i && k <= far ? `<button type="button" class="${cls}" data-k="${k}" aria-label="${k < far ? "Revoir la question " + (k + 1) : "Reprendre à la question " + (k + 1)}"></button>` : `<i class="${cls}"></i>`;
+    }).join(""));
+    if (go) d.addEventListener("click", (e) => { const b = e.target.closest("button[data-k]"); if (b) go(+b.dataset.k); });
+    else d.setAttribute("aria-hidden", "true");
+    return d;
+  };
   const opt = (o) => el("button", "opt", `<span class="pic" aria-hidden="true">${o.i}</span><span>${o.l}</span>`);
 
   const T = {};
@@ -348,16 +362,16 @@ const Jeux = (function () {
   };
 
   T.quiz = (st, m, ctx, next) => {
-    let r = 0;
+    let r = 0, max = 0, tok = 0;
     (function show() {
       if (r >= st.rounds.length) return next();
-      const R = st.rounds[r]; let lock = false;
-      m.innerHTML = ""; if (st.rounds.length > 1) m.append(dots(r, st.rounds.length));
+      const R = st.rounds[r]; let lock = false; const my = ++tok; max = Math.max(max, r);
+      m.innerHTML = ""; if (st.rounds.length > 1) m.append(dots(r, st.rounds.length, max, (k) => { r = k; show(); }));
       if (R.pic) m.append(el("div", "bigcard", `<span class="pic" aria-hidden="true">${R.pic}</span><span>${R.cap || ""}</span>`));
       const box = el("div", "opts"); ctx.say(R.q);
       (R.any ? R.opts : mix(R.opts)).forEach((o) => { const b = opt(o); box.append(b); b.onclick = () => {
         if (lock) return;
-        if (R.any || o.ok) { lock = true; b.classList.add("ok"); const fb = o.fb || R.fb || "Bravo !"; ctx.say(fb); ctx.later(() => { r++; show(); }, ctx.pause(fb)); }
+        if (R.any || o.ok) { lock = true; b.classList.add("ok"); const fb = o.fb || R.fb || "Bravo !"; ctx.say(fb); ctx.later(() => { if (my !== tok) return; r++; show(); }, ctx.pause(fb)); }
         else { shake(b); ctx.say(o.fb || "Essaie encore !"); }
       }; });
       m.append(box);
@@ -392,30 +406,30 @@ const Jeux = (function () {
 
   // Plusieurs réponses possibles, toutes justes : l'enfant touche ce qu'il reconnaît, puis valide.
   T.multi = (st, m, ctx, next) => {
-    let r = 0;
+    let r = 0, max = 0, tok = 0;
     (function show() {
       if (r >= st.rounds.length) return next();
-      const R = st.rounds[r]; let lock = false;
-      m.innerHTML = ""; m.append(dots(r, st.rounds.length));
+      const R = st.rounds[r]; let lock = false; const my = ++tok; max = Math.max(max, r);
+      m.innerHTML = ""; m.append(dots(r, st.rounds.length, max, (k) => { r = k; show(); }));
       const box = el("div", "opts"); ctx.say(R.q);
       R.items.forEach((o) => { const b = opt(o); b.setAttribute("aria-pressed", "false"); box.append(b); b.onclick = () => { if (lock) return; const on = b.classList.toggle("ok"); b.setAttribute("aria-pressed", on); }; });
       const go = el("button", "cta", "C'est choisi !"); const row = el("div", "center"); row.append(go);
-      go.onclick = () => { if (lock) return; lock = true; ctx.say(R.fb); ctx.later(() => { r++; show(); }, ctx.pause(R.fb)); };
+      go.onclick = () => { if (lock) return; lock = true; ctx.say(R.fb); ctx.later(() => { if (my !== tok) return; r++; show(); }, ctx.pause(R.fb)); };
       m.append(box, row);
     })();
   };
 
   T.sort = (st, m, ctx, next) => {
-    let c = 0;
+    let c = 0, max = 0, tok = 0;
     (function show() {
       if (c >= st.cards.length) return next();
-      const C = st.cards[c]; let lock = false;
-      m.innerHTML = ""; m.append(dots(c, st.cards.length));
+      const C = st.cards[c]; let lock = false; const my = ++tok; max = Math.max(max, c);
+      m.innerHTML = ""; m.append(dots(c, st.cards.length, max, (k) => { c = k; show(); }));
       m.append(el("div", "bigcard", `<span class="pic" aria-hidden="true">${C.i}</span><span>${C.l}</span>`));
       const box = el("div", "opts bins"); ctx.say(C.q || (c === 0 ? st.q : (st.q2 || "Et pour cette carte ?"))); // consigne complète une seule fois
       st.bins.forEach((bn, k) => { const b = opt(bn); box.append(b); b.onclick = () => {
         if (lock) return;
-        if (k === C.bin) { lock = true; b.classList.add("ok"); const fb = C.fb || "Oui, bravo !"; ctx.say(fb); ctx.later(() => { c++; show(); }, ctx.pause(fb)); }
+        if (k === C.bin) { lock = true; b.classList.add("ok"); const fb = C.fb || "Oui, bravo !"; ctx.say(fb); ctx.later(() => { if (my !== tok) return; c++; show(); }, ctx.pause(fb)); }
         else { shake(b); ctx.say("Regarde bien, essaie encore !"); }
       }; });
       m.append(box);
@@ -506,10 +520,10 @@ const Jeux = (function () {
   };
 
   T.doit = (st, m, ctx, next) => {
-    let s = 0;
+    let s = 0, max = 0;
     (function show() {
       if (s >= st.steps.length) return next();
-      const S = st.steps[s]; m.innerHTML = ""; m.append(dots(s, st.steps.length));
+      const S = st.steps[s]; max = Math.max(max, s); m.innerHTML = ""; if (st.steps.length > 1) m.append(dots(s, st.steps.length, max, (k) => { s = k; show(); }));
       if (st.hand) m.append(el("div", "hand", st.steps.map((_, k) => `<i class="${k < s ? "on" : k === s ? "cur" : ""}"></i>`).join("")));
       m.append(el("div", "bigcard", `<span class="pic" aria-hidden="true">${S.i}</span><span>${S.l}</span>`));
       const b = el("button", "cta", st.btn || "C'est fait !"); b.onclick = () => { s++; show(); };

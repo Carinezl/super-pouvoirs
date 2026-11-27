@@ -629,3 +629,10 @@ footer{max-width:820px;gap:12px}
 .badge.fly::after{display:none}
 @keyframes badgePop{0%{transform:scale(1)}35%{transform:scale(1.7)}70%{transform:scale(.9)}100%{transform:scale(1)}}
 .badge.pop{animation:badgePop .8s ease-out;z-index:3}
+
+/* Cercles de progression cliquables : revoir une question déjà vue */
+.dots{align-items:center}
+.dots button{position:relative;width:14px;height:14px;padding:0;border:0;border-radius:50%;background:var(--teal);cursor:pointer}
+.dots button.next{background:#dfe3f7;box-shadow:0 0 0 2px var(--teal)}
+.dots button::after{content:"";position:absolute;inset:-12px -4px}
+.dots button:hover,.dots button:focus-visible{box-shadow:0 0 0 3px #fff,0 0 0 5px var(--cobalt);outline:none}
