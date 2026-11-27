@@ -33,7 +33,7 @@ const DAYS = [
     parler: ["Le jeu ne classe pas les personnes en « sûres » et « pas sûres » : la plupart des violences sont commises par des proches. Il répète une seule idée, les règles sont les mêmes pour tout le monde.", "Dites-le avec vos mots : « Même moi, je te demande. Et tu as le droit de me dire non. »"],
     eviter: "Laisser entendre que le danger vient surtout des inconnus, ou qu'on ne dit pas non aux personnes qu'on aime.",
     plus: "Éducation nationale, vademecum « Violences sexuelles intrafamiliales » : personne n'a le droit de toucher le corps d'un enfant sans son accord, que ce soit un membre de sa famille ou non." },
-  { t: "Tu es d'accord ?", p: "Super-politesse", e: "Je demande avant de toucher, et je regarde si l'autre est d'accord.",
+  { t: "Tu es d'accord ?", p: "Super-politesse", e: "Je demande avant de toucher et respecte la réponse.",
     o: "Demander avant de toucher quelqu'un, et repérer son accord sur son visage et dans sa posture.", jour: "Montrez l'exemple dans les petites choses : « Tu me prêtes ton crayon ? », « Je peux m'asseoir à côté de toi ? »", compris: "Votre enfant demande avant de prendre, de toucher ou de s'installer, et regarde la réaction de l'autre.", parler: ["Entraînez-vous avec une peluche, puis entre vous.", "Vous aussi, demandez : « Je peux te faire un câlin ? »"],
     plus: "Saprea, « Enseigner le consentement à votre enfant »." },
   { t: "J'ai le droit de changer d'avis", p: "Je peux changer d'avis", e: "J'ai le droit de changer d'avis, et les autres aussi.",
