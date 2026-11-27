@@ -498,12 +498,12 @@ const Jeux = (function () {
     let p = 0; m.innerHTML = "";
     const h = { skin: "#b9a4ff" }; // bonhomme de couleur neutre : ni genre ni couleur de peau
     const prog = el("div"); const fig = el("div", "fig", `<svg viewBox="0 0 200 300" role="img" aria-label="Bonhomme">
-      <g data-zone="bras" stroke="${h.skin}" stroke-width="20" stroke-linecap="round" fill="none"><path d="M72 108L38 158"/><path d="M128 108L162 158"/></g>
-      <g data-zone="mains" fill="${h.skin}"><circle cx="34" cy="166" r="28" fill="transparent"/><circle cx="166" cy="166" r="28" fill="transparent"/><circle cx="34" cy="166" r="14"/><circle cx="166" cy="166" r="14"/></g>
       <g data-zone="jambes" fill="${h.skin}"><rect x="72" y="190" width="24" height="78" rx="11"/><rect x="104" y="190" width="24" height="78" rx="11"/></g>
       <g data-zone="pieds" fill="${h.skin}"><rect x="52" y="256" width="96" height="40" fill="transparent"/><ellipse cx="80" cy="274" rx="19" ry="11"/><ellipse cx="120" cy="274" rx="19" ry="11"/></g>
       <g data-zone="ventre"><rect x="68" y="92" width="64" height="84" rx="20" fill="${h.skin}"/><circle cx="100" cy="150" r="2.5" fill="rgba(0,0,0,.25)"/></g>
       <g data-zone="maillot"><path d="M68 162H132V180Q132 200 100 205Q68 200 68 180z" fill="${st.suit || "#19c6a7"}"/>${st.stripes ? '<path d="M68 170H132M68 180H132" stroke="#fff" stroke-width="4"/>' : ""}</g>
+      <g data-zone="bras" stroke="${h.skin}" stroke-width="20" stroke-linecap="round" fill="none"><path d="M72 108L38 158"/><path d="M128 108L162 158"/><path d="M70 110L44 149M130 110L156 149" stroke="transparent" stroke-width="40" stroke-linecap="butt"/></g>
+      <g data-zone="mains" fill="${h.skin}"><circle cx="32" cy="170" r="24" fill="transparent"/><circle cx="168" cy="170" r="24" fill="transparent"/><circle cx="34" cy="166" r="14"/><circle cx="166" cy="166" r="14"/></g>
       <g data-zone="tete"><circle cx="100" cy="54" r="40" fill="${h.skin}"/>
         <circle cx="86" cy="58" r="4" fill="#1b1b3a"/><circle cx="114" cy="58" r="4" fill="#1b1b3a"/><path d="M88 72Q100 82 112 72" fill="none" stroke="#1b1b3a" stroke-width="3" stroke-linecap="round"/></g></svg>`);
     m.append(prog, fig);
@@ -513,7 +513,7 @@ const Jeux = (function () {
     const pick = (e) => {
       const g = e.target.closest("[data-zone]"), P = st.prompts[p]; if (!g || !P) return;
       if (g.dataset.zone === P.zone) { g.classList.add("hit"); ctx.say(P.fb); p++; ctx.later(() => { g.classList.remove("hit"); ask(); }, ctx.pause(P.fb)); }
-      else { shake(fig); ctx.say("Presque ! Essaie encore."); }
+      else { shake(fig); ctx.say("Presque ! Essaie encore."); const bub = document.getElementById("sayText"); if (bub && bub.scrollIntoView) bub.scrollIntoView({ block: "nearest", behavior: "smooth" }); } // sur téléphone, la bulle peut être hors de l'écran
     };
     fig.querySelector("svg").addEventListener("click", pick);
     fig.querySelector("svg").addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(e); } });
