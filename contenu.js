@@ -288,6 +288,7 @@ const INFO = {
 
 <section class="sec s3">
 <h3><span class="n">3</span>Si votre enfant vous confie quelque chose</h3>
+<p>Un enfant met souvent longtemps à parler, et son silence ne veut pas dire que tout va bien.</p>
 <h4>Ce que vous pouvez dire</h4>
 <p class="key">« Je te crois. » « Ce n'est pas ta faute. » « Merci de m'en avoir parlé, c'est courageux. » « Personne n'a le droit de te faire ça. » « Je vais t'aider. »</p>
 <h4>Ce qu'il faut faire</h4>
