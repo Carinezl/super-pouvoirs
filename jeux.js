@@ -62,7 +62,7 @@ const GAMES = {
       { i: "🩺", l: "Les docteurs, et moi aussi", ok: true }, { i: "🤫", l: "Personne, c'est interdit", fb: "Ce ne sont pas des gros mots. Essaie encore !" }] }] }],
 
   3: [{ type: "order", q: "C'est l'heure du bain ! Touche les images dans le bon ordre.", items: [
-      { i: "🧦", l: "J'enlève mes habits" }, { i: "💧", l: "Je me mouille" }, { i: "🧼", l: "Je savonne tout mon corps" }, { i: "🚿", l: "Je me rince" }, { i: "👕", l: "Je m'essuie et je m'habille" }] },
+      { i: "🧺", l: "J'enlève mes habits" }, { i: "🛁", l: "Je me mouille" }, { i: "🧼", l: "Je savonne tout mon corps" }, { i: "🚿", l: "Je me rince" }, { i: "🧖", l: "Je m'essuie et je m'habille" }] },
     { type: "quiz", rounds: [
       { q: "Qui peut laver tes parties intimes, quand tu sais le faire ?", fb: "Oui, c'est toi !", opts: [
         { i: "🙋", l: "Moi", ok: true }, { i: "👥", l: "N'importe qui", fb: "Non, pas n'importe qui. Regarde l'autre réponse." }] },
