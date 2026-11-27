@@ -231,7 +231,7 @@ const INFO = {
   parents: {
     title: "Espace parents", sub: "Conseils pratiques pour accompagner votre enfant",
     html: `
-<p class="lead">Parler tôt du corps, de l'intimité et des émotions est l'un des meilleurs moyens de protéger un enfant. Un enfant qui a les mots peut dire ce qu'il ressent, et ce qui lui arrive. On brise l'ignorance, pas l'innocence : en parler ne « donne pas d'idées ». Et comme les enfants mettent souvent longtemps à se confier, mieux vaut que le sujet soit déjà familier à la maison.</p>
+<p class="lead">Si la protection des enfants relève d'une responsabilité collective, parler du corps, de l'intimité et des émotions avec un enfant est un moyen clé pour y contribuer. Donner aux enfants l'espace et les mots pour parler librement et spontanément de ce qu'ils ressentent, c'est aussi leur donner la capacité de dire ce qui leur arrive et ce qu'ils traversent. Et, in fine, donner aux adultes les moyens de mieux les accompagner.</p>
 
 <section class="sec s1">
 <h3><span class="n">1</span>Le calendrier, mode d'emploi</h3>
