@@ -158,6 +158,7 @@
     return {
       hero: save.hero,
       say(text) { const s = $("sayText"); if (s) s.textContent = text; },
+      prevTitle: current.n > 1 ? DAYS[current.n - 2].t : "", // titre de la veille, affiché pendant le « Petit rappel d'hier »
       pause: (text) => Math.min(6500, 1300 + text.length * 60),
       later(fn, ms) { setTimeout(() => { if (id === runId && dlg.open) fn(); }, ms); },
       markDone() { const n = current.n; if (!save.done.includes(n)) { save.done.push(n); persist(); justWon = n; } renderTiles(); const pt = $("powerText"); if (pt) pt.textContent = `Pouvoir gagné : ${current.day.p}`; },
