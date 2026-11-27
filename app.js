@@ -20,6 +20,13 @@
     return d.getMonth() === 10 ? 0 : 24; // novembre : tout fermé ; après Noël : tout ouvert
   }
   const today = todayNumber();
+  // Le jour mis en avant (liseré, étiquette « Aujourd'hui », petit mouvement) : seulement du 1er au 24 décembre.
+  const jourJ = (() => {
+    const q = new URLSearchParams(location.search).get("jour");
+    if (q !== null && !isNaN(+q)) return +q >= 1 && +q <= 24 ? +q : 0;
+    const d = new Date();
+    return d.getMonth() === 11 && d.getDate() <= 24 ? d.getDate() : 0;
+  })();
   const isOpenDay = (n) => save.unlockAll || n <= today;
 
   // ---------- Le héros (étape 0) ----------
@@ -77,7 +84,7 @@
       const door = n === 24;
       const [bg, num, shade] = door ? ["#ff7ac0", "#1d2fa8", "rgba(255,255,255,.7)"] : WINS[(n * 3) % WINS.length];
       const shape = door ? "arch" : SHAPES[(n * 5) % SHAPES.length];
-      const open = isOpenDay(n), done = open && save.done.includes(n), isToday = n === today;
+      const open = isOpenDay(n), done = open && save.done.includes(n), isToday = n === jourJ;
       const [w, h] = SIZES[n % SIZES.length];
       const size = door ? "width:92%;height:112%" : shape === "round" ? "" : shape === "arch" ? "width:78%;height:100%" : `width:${w}%;height:${h}%`;
       const cls = ["win", shape, door ? "door" : "", done ? "done" : "", open ? "" : "locked", isToday ? "today bobber" : ""].join(" ");
