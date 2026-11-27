@@ -93,7 +93,11 @@ const GAMES = {
       { q: "Et toi, ton corps ressemble-t-il exactement à celui d'un autre enfant ?", fb: "Non ! Ton corps est unique, lui aussi.", opts: [
         { i: "⭐", l: "Non, mon corps est unique", ok: true }, { i: "👯", l: "Oui, exactement pareil", fb: "Regarde tes mains, tes yeux, tes cheveux : tu es unique ! Choisis l'autre réponse." }] },
       { q: "Est-ce qu'on se moque du corps de quelqu'un ?", fb: "Jamais ! Bravo.", opts: [
-        { i: "🙅", l: "Non, jamais", ok: true }, { i: "😜", l: "Oui, c'est rigolo", fb: "Ça fait de la peine. Essaie encore !" }] }] }],
+        { i: "🙅", l: "Non, jamais", ok: true }, { i: "😜", l: "Oui, c'est rigolo", fb: "Ça fait de la peine. Essaie encore !" }] },
+      { q: "Quelqu'un se moque du corps d'un·e ami·e. Que fais-tu ?", opts: [
+        { i: "✋", l: "Je dis : arrête, ça fait de la peine", ok: true, fb: "Oui ! Tu peux dire stop, et aller voir ton ami·e." },
+        { i: "🗣️", l: "Je vais le dire à un adulte", ok: true, fb: "Oui ! Un adulte peut aider. Et tu peux aller voir ton ami·e." },
+        { i: "😜", l: "Je ris moi aussi", fb: "Rire avec les autres, ça fait encore plus de peine. Essaie encore !" }] }] }],
 
   6: [{ type: "order", q: "Tu as un bobo. Un adulte qui s'occupe de toi veut te mettre de la crème. Que se passe-t-il d'abord ? Touche les images dans le bon ordre.", items: [
       { i: "💬", l: "On m'explique" }, { i: "🙋", l: "On me demande si je suis d'accord" }, { i: "🩹", l: "On me met la crème" }] },
