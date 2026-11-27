@@ -695,3 +695,7 @@ footer{max-width:820px;gap:12px}
 .win .pane{background:var(--bg)}
 /* Fond uni derrière le personnage : grande fenêtre de la maison et aperçu de l'étape 0 */
 .hero-win,.creator .preview{background:var(--cobalt)}
+/* Grande fenêtre du personnage : coins du bas droits, posée sur sa barre. Titre du toit : « super-pouvoirs » reste entier. */
+.hero-win{border-radius:999px 999px 0 0}
+.roof h1{text-wrap:balance}
+.roof h1 span{white-space:nowrap}
