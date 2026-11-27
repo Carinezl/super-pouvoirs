@@ -124,7 +124,7 @@ nav{display:flex;flex-wrap:wrap;gap:8px}
 .win.round .sill,.win.door .sill{display:none}
 .win.door .num{font-size:34px;margin-top:46%}
 .win.door.done .num{margin-top:0}
-.wreath{position:absolute;top:12%;left:50%;transform:translateX(-50%);width:46%;aspect-ratio:1;border-radius:50%;border:8px solid var(--teal-d);background:radial-gradient(circle at 50% 0,var(--red) 5px,transparent 6px)}
+.win .pane svg.wreath{position:absolute;top:7%;left:50%;bottom:auto;transform:translateX(-50%);width:44%;height:auto}
 .win.done .wreath{display:none}
 .win .check{position:absolute;top:-9px;right:-9px}
 .win.today .pane{box-shadow:0 6px 0 rgba(0,0,0,.14),0 0 0 4px var(--yellow),0 0 26px 6px var(--yellow)}

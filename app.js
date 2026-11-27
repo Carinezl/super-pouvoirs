@@ -74,6 +74,8 @@
   const CHARS = window.PERSOS; // 24 personnages, un par fenêtre
   const BADGE_COLS = ["#ff3b2f", "#1d2fa8", "#19c6a7", "#ff7ac0", "#ffd400", "#b9a4ff"];
   const CHECK = '<svg class="check" aria-hidden="true" width="26" height="26" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#19c6a7" stroke="#fff" stroke-width="2"/><path d="M7 12.5l3 3 7-7" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  // La couronne de la porte 24, la même que sur la page d'accueil.
+  const WREATH = '<svg class="wreath" viewBox="558 722 84 92" aria-hidden="true"><circle cx="600" cy="772" r="30" fill="none" stroke="#0e8b75" stroke-width="15"/><circle cx="578" cy="756" r="4.5" fill="#ff3b2f"/><circle cx="624" cy="762" r="4.5" fill="#ff3b2f"/><circle cx="588" cy="798" r="4.5" fill="#ff3b2f"/><circle cx="620" cy="792" r="4.5" fill="#ffd400"/><circle cx="572" cy="778" r="4.5" fill="#ffd400"/><path d="M600 742q-18 -18 -24 -4q4 8 24 4q18 -18 24 -4q-4 8 -24 4z" fill="#ff3b2f"/></svg>';
   const doneCount = () => save.done.filter((n) => n >= 1 && n <= 24).length;
 
   function renderTiles() {
@@ -91,7 +93,7 @@
       const label = `${door ? "Porte" : "Fenêtre"} ${n}` + (open ? ` : ${DAYS[n - 1].t}` + (done ? ", réussie" : "") : `, s'ouvre le ${n === 1 ? "1er" : n} décembre`);
       const char = done ? `<svg class="peek p${(n % 4) + 1}" viewBox="0 0 120 130" preserveAspectRatio="xMidYMax meet"><use href="#c-${CHARS[n - 1]}"/></svg>` : "";
       return `<div class="cell"><button type="button" class="${cls}" data-day="${n}" aria-label="${label}" style="--bg:${bg};--num-c:${num};--shade:${shade};${size}">
-        <span class="pane" aria-hidden="true">${char}${door ? '<span class="wreath"></span>' : ""}</span>
+        <span class="pane" aria-hidden="true">${char}${door ? WREATH : ""}</span>
         <span class="num">${n}</span><span class="sill" aria-hidden="true"></span>
         ${done ? CHECK : ""}${isToday ? '<span class="tag">Aujourd\'hui</span>' : ""}</button></div>`;
     }).join("");
