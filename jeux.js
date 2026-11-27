@@ -409,7 +409,8 @@ const Jeux = (function () {
     // Les onglets « Le jeu / Fiche adulte » concernent eux aussi le jeu du jour.
     const tabs = document.getElementById("dlgTabs");
     if (tabs) tabs.hidden = true;
-    const end = () => { m.classList.remove("compact"); if (bubble && col.parentNode) col.replaceWith(bubble); tag.remove(); if (power) power.style.display = ""; if (tabs) tabs.hidden = false; next(); };
+    const sub = document.getElementById("dlgSub"); if (sub) sub.hidden = true; // l'objectif du jour ne s'affiche qu'avec le jeu du jour
+    const end = () => { m.classList.remove("compact"); if (bubble && col.parentNode) col.replaceWith(bubble); tag.remove(); if (power) power.style.display = ""; if (tabs) tabs.hidden = false; if (sub) sub.hidden = false; next(); };
     const box = el("div", "opts"); ctx.say("Tu te souviens ? " + st.q);
     mix(st.opts).forEach((o) => { const b = opt(o); box.append(b); b.onclick = () => {
       if (lock) return;
