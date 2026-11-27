@@ -198,7 +198,7 @@ const GAMES = {
         { i: "✊", l: "Je serre les poings" }, { i: "🥵", l: "J'ai chaud, je deviens rouge" }, { i: "📣", l: "J'ai envie de crier" }, { i: "🦶", l: "Je tape des pieds" }] },
       { q: "Et quand tu es triste ?", fb: "La tristesse aussi parle dans le corps. On a le droit de pleurer.", items: [
         { i: "😢", l: "Mes yeux pleurent" }, { i: "🪨", l: "Ma gorge se serre" }, { i: "🛌", l: "J'ai envie de me mettre en boule" }, { i: "🤗", l: "J'ai envie d'un câlin" }] },
-      { q: "Et quand tu es dans la joie ?", fb: "Ton corps te parle tout le temps. Bravo de l'écouter !", items: [
+      { q: "Et quand tu es joyeux·se ?", fb: "Ton corps te parle tout le temps. Bravo de l'écouter !", items: [
         { i: "😀", l: "Je souris" }, { i: "🤸", l: "Je saute partout" }, { i: "🎶", l: "J'ai envie de chanter" }, { i: "🎈", l: "Mon corps est tout léger" }] }] }],
 
   15: [{ type: "sort", q: "Est-ce que ça met du soleil ou un nuage dans ton cœur ?", q2: "Et là : soleil ou nuage ?", bins: [{ i: "☀️", l: "Soleil" }, { i: "☁️", l: "Nuage" }], cards: [
