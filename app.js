@@ -35,14 +35,15 @@
   // Le héros est un animal : pas de genre ni de couleur de peau à choisir.
   // La cape et le masque prennent les couleurs choisies (variables --cape et --mask lues par les symboles).
   const EXTRA_MASK = {
-    bear: '<rect x="33" y="57" width="54" height="17" rx="8.5" style="fill:var(--mask)"/><circle cx="47" cy="66" r="5" fill="#fff"/><circle cx="73" cy="66" r="5" fill="#fff"/><circle cx="48" cy="66" r="2.4" fill="#1b1b3a"/><circle cx="74" cy="66" r="2.4" fill="#1b1b3a"/>',
-    dragon: '<rect x="30" y="54" width="60" height="20" rx="10" style="fill:var(--mask)"/><circle cx="46" cy="64" r="6" fill="#fff"/><circle cx="74" cy="64" r="6" fill="#fff"/><circle cx="47" cy="65" r="3" fill="#1b1b3a"/><circle cx="75" cy="65" r="3" fill="#1b1b3a"/>'
+    bear: '<rect x="33" y="57" width="54" height="17" rx="8.5" style="fill:var(--mask,#1d2fa8)"/><circle cx="47" cy="66" r="5" fill="#fff"/><circle cx="73" cy="66" r="5" fill="#fff"/><circle cx="48" cy="66" r="2.4" fill="#1b1b3a"/><circle cx="74" cy="66" r="2.4" fill="#1b1b3a"/>',
+    dragon: '<rect x="30" y="54" width="60" height="20" rx="10" style="fill:var(--mask,#1d2fa8)"/><circle cx="46" cy="64" r="6" fill="#fff"/><circle cx="74" cy="64" r="6" fill="#fff"/><circle cx="47" cy="65" r="3" fill="#1b1b3a"/><circle cx="75" cy="65" r="3" fill="#1b1b3a"/>'
   };
   function heroSVG(h, cls, place) {
     return `<svg class="${cls || ""}" ${place || ""} viewBox="0 0 120 130" role="img" aria-label="Ton personnage" style="--cape:${h.cape};--mask:${h.mask}">
       <path d="M2 136Q60 44 118 136z" style="fill:var(--cape)"/><use href="#c-${h.animal}"/>${EXTRA_MASK[h.animal] || ""}</svg>`;
   }
   const compSVG = (c, cls) => `<svg class="${cls || "peek"}" viewBox="0 0 120 130" aria-hidden="true"><use href="#c-${c}"/></svg>`;
+  const thumbSVG = (c) => `<svg viewBox="0 0 120 130" aria-hidden="true"><use href="#c-${c}"/>${EXTRA_MASK[c] || ""}</svg>`; // vignette du choix du personnage, masque compris
 
   function renderHero() {
     const h = save.hero;
@@ -80,7 +81,7 @@
       const [w, h] = SIZES[n % SIZES.length];
       const size = door ? "width:92%;height:112%" : shape === "round" ? "" : shape === "arch" ? "width:78%;height:100%" : `width:${w}%;height:${h}%`;
       const cls = ["win", shape, door ? "door" : "", done ? "done" : "", open ? "" : "locked", isToday ? "today bobber" : ""].join(" ");
-      const label = `Fenêtre ${n}` + (open ? ` : ${DAYS[n - 1].t}` + (done ? ", réussie" : "") : `, s'ouvre le ${n === 1 ? "1er" : n} décembre`);
+      const label = `${door ? "Porte" : "Fenêtre"} ${n}` + (open ? ` : ${DAYS[n - 1].t}` + (done ? ", réussie" : "") : `, s'ouvre le ${n === 1 ? "1er" : n} décembre`);
       const char = done ? `<svg class="peek p${(n % 4) + 1}" viewBox="0 0 120 130" preserveAspectRatio="xMidYMax meet"><use href="#c-${CHARS[n - 1]}"/></svg>` : "";
       return `<div class="cell"><button type="button" class="${cls}" data-day="${n}" aria-label="${label}" style="--bg:${bg};--num-c:${num};--shade:${shade};${size}">
         <span class="pane" aria-hidden="true">${char}${door ? '<span class="wreath"></span>' : ""}</span>
@@ -103,7 +104,7 @@
     const n = +b.dataset.day;
     if (!isOpenDay(n)) {
       b.classList.remove("shake"); void b.offsetWidth; b.classList.add("shake");
-      toast(`Patience ! Cette fenêtre s'ouvre le ${n === 1 ? "1er" : n} décembre. Si vous voulez débloquer dès à présent toutes les fenêtres, cliquez sur « Réglages » dans le menu.`, 7000);
+      toast(`Patience ! Cette ${n === 24 ? "porte" : "fenêtre"} s'ouvre le ${n === 1 ? "1er" : n} décembre. Si vous voulez débloquer dès à présent toutes les fenêtres, cliquez sur « Réglages » dans le menu.`, 7000);
       return;
     }
     openDay(n);
@@ -275,7 +276,7 @@
     m.innerHTML = `<div class="creator">
       <div class="preview"><div id="heroPrev">${heroSVG(h)}</div></div>
       <div class="choices">
-        <fieldset><legend>Mon personnage</legend>${ANIMALS.map(([c, l]) => `<button type="button" class="cp${h.animal === c ? " on" : ""}" data-k="animal" data-v="${c}" aria-label="${l}" aria-pressed="${h.animal === c}">${compSVG(c, "")}</button>`).join("")}</fieldset>
+        <fieldset><legend>Mon personnage</legend>${ANIMALS.map(([c, l]) => `<button type="button" class="cp${h.animal === c ? " on" : ""}" data-k="animal" data-v="${c}" aria-label="${l}" aria-pressed="${h.animal === c}">${thumbSVG(c)}</button>`).join("")}</fieldset>
         ${sw("cape", CAPES, "Sa cape")}${sw("mask", MASKS, "Son masque")}
         <label class="name">Le nom de mon personnage (un adulte peut l'écrire)<input id="heroName" type="text" maxlength="16" autocomplete="off" placeholder="Super Étoile" value="${esc(h.name)}"></label>
       </div></div>
