@@ -252,6 +252,7 @@ const INFO = {
 <li>À partir du 2 décembre, chaque jeu démarre par une petite révision de ce qui a été vu la veille. Vous pouvez décider de sauter cette étape et de passer directement à la fiche du jour.</li>
 <li>Chaque fenêtre a un onglet « Fiche adulte » : l'objectif du jour, comment en parler, et des idées pour poursuivre la dynamique au quotidien.</li>
 <li>Si votre enfant n'a pas envie, on reporte.</li>
+<li>Si votre enfant parle peu ou autrement, appuyez-vous sur les images, les gestes et le mime : pointer du doigt compte autant que dire.</li>
 <li>Le bouton « Réglages » permet de débloquer toutes les fenêtres en avance (avant le 24 décembre), ou de réinitialiser le jeu (c'est-à-dire effacer les super-pouvoirs gagnés et le personnage choisi).</li>
 </ul>
 <h4>Quand votre enfant vous pose une question</h4>
@@ -313,6 +314,19 @@ const INFO = {
 <li>Plutôt que de questionner, appuyez-vous sur un support : un album, une courte vidéo, un jeu de ce calendrier. Laissez votre enfant réagir spontanément.</li>
 <li>Demandez simplement : « À quoi cela te fait penser ? »</li>
 <li>Des idées de supports : <button type="button" class="inlinelink" data-info="ressources">voir « Ressources »</button>.</li>
+</ul>
+</section>
+
+<section class="sec s4">
+<h3><span class="n">4</span>Et vous, dans tout ça ?</h3>
+<ul>
+<li>Apprendre qu'un enfant a pu subir une violence est un choc. Colère, tristesse, culpabilité, sentiment d'impuissance : ces réactions sont normales et fréquentes.</li>
+<li>Devant votre enfant, restez aussi calme que possible. Votre réaction compte : un adulte posé rassure, et l'enfant ose continuer à parler.</li>
+<li>Si vous avez vous-même vécu des violences, ce moment peut faire remonter des souvenirs.</li>
+<li>Demander de l'aide n'est pas un échec. Votre médecin, la PMI, un·e psychologue ou le <strong>119</strong> sont là aussi pour vous.</li>
+<li>Protéger sans isoler : votre enfant a besoin de continuer à jouer, à voir ses ami·es et à vivre son quotidien.</li>
+<li>La responsabilité est toujours celle de l'auteur des violences. Un parent ne peut pas tout prévoir.</li>
+<li>Pour trouver un soutien : <button type="button" class="inlinelink" data-info="contacts">voir « Contacts utiles »</button>.</li>
 </ul>
 </section>`
   }

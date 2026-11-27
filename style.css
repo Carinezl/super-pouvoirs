@@ -614,3 +614,4 @@ footer{max-width:820px;gap:12px}
 @media (max-width:520px){#confirmDlg{margin:auto}.pill.gearp svg{width:16px;height:16px}}
 /* Le menu reste au-dessus de la maison fermée, pour que ses boutons reçoivent bien les clics */
 .topbar,.setbar{z-index:3}
+.sec.s4{background:#f1edff}
