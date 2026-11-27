@@ -200,7 +200,7 @@
         ${d.compris ? `<div><h3>Comment voir que c'est compris</h3><p>${d.compris}</p></div>` : ""}
         ${d.plus ? `<div><h3>Pour aller plus loin</h3><p>${d.plus}</p></div>` : ""}
         ${current.n === 24 ? "" : `<p class="note">Si votre enfant ne veut pas jouer, n'insistez pas : proposez-lui de regarder, ou revenez-y un autre jour. Refuser, c'est aussi s'exercer à dire non.</p>`}
-        <div class="box119"><strong>Si votre enfant vous confie quelque chose</strong> : « Je te crois, ce n'est pas ta faute, je vais t'aider. » Laissez votre enfant parler librement, sans le faire répéter ni poser de questions fermées. Notez ses mots tels quels. Ne cherchez pas de preuves, et ne promettez rien sur la suite. Un doute ? Appelez le <strong>119</strong>, gratuit, 24h/24.</div>`;
+        <div class="box119"><strong>Si votre enfant vous confie quelque chose</strong> : « Je te crois, ce n'est pas ta faute, je vais t'aider. » Laissez votre enfant parler librement, sans lui demander de répéter ni poser de questions fermées. Notez ses mots tels quels. Ne cherchez pas de preuves, et ne promettez rien sur la suite. Un doute ? Appelez le <strong>119</strong>, gratuit, 24h/24.</div>`;
     }
   }
   function openDay(n) {

@@ -72,7 +72,7 @@ const GAMES = {
   4: [{ type: "quiz", rounds: [
       { q: "Tu veux entrer dans la salle de bain, mais la porte est fermée. Que fais-tu ?", fb: "Toc toc ! Tu frappes et tu attends qu'on te réponde.", opts: [
         { i: "✊", l: "Je frappe et j'attends", ok: true }, { i: "🚪", l: "J'entre sans demander", fb: "Oh non, il y a quelqu'un ! Et l'autre réponse, qu'en penses-tu ?" }] },
-      { q: "Tu es dans ton bain. Quelqu'un frappe. Tu n'as pas envie qu'on entre. Que peux-tu dire ?", fb: "Oui ! Tu peux dire : Attends, je veux être tranquille.", opts: [
+      { q: "Tu es dans ton bain. Quelqu'un frappe. Tu n'as pas envie qu'on entre. Que peux-tu dire ?", fb: "Oui ! Tu peux dire : « Attends, je veux être tranquille. »", opts: [
         { i: "🙅", l: "Attends, je veux être tranquille", ok: true }, { i: "😶", l: "Rien, je n'ai pas le choix", fb: "Si, tu as le droit de le dire ! Essaie encore !" }] }] },
     { type: "sort", q: "Est-ce que tu peux être sans vêtements ici ?", bins: [{ i: "👍", l: "Oui" }, { i: "🤔", l: "Ça dépend" }, { i: "👎", l: "Non" }], cards: [
       { i: "🛁", l: "Dans la salle de bain, quand je me lave", bin: 0, fb: "Oui. Et c'est toi qui dis si tu veux être tranquille." },
@@ -98,13 +98,13 @@ const GAMES = {
         { i: "🙅", l: "Non, jamais", ok: true }, { i: "😜", l: "Oui, c'est rigolo", fb: "Ça fait de la peine. Essaie encore !" }] }] }],
 
   6: [{ type: "quiz", rounds: [
-      { q: "Tu as un bobo. Un adulte qui s'occupe de toi veut te mettre de la crème. Que doit d'abord faire l'adulte ?", fb: "Oui ! Il explique, et il demande : Tu es d'accord ?", opts: [
+      { q: "Tu as un bobo. Un adulte qui s'occupe de toi veut te mettre de la crème. Que doit d'abord faire l'adulte ?", fb: "Oui ! Il explique, et il demande : « Tu es d'accord ? »", opts: [
         { i: "💬", l: "Il explique et il demande", ok: true }, { i: "🤐", l: "Il le fait sans rien dire", fb: "Un soin, ça s'explique d'abord. Regarde l'autre réponse." }] },
-      { q: "Tu as compris. Mais tu préfères mettre la crème toi-même. Est-ce que tu peux le dire ?", fb: "Oui ! Tu peux dire : Je préfère le faire moi-même.", opts: [
+      { q: "Tu as compris. Mais tu préfères mettre la crème toi-même. Est-ce que tu peux le dire ?", fb: "Oui ! Tu peux dire : « Je préfère le faire moi-même. »", opts: [
         { i: "🙋", l: "Oui, je peux le dire", ok: true }, { i: "🙊", l: "Non, je dois me taire", fb: "Tu as le droit de dire ce que tu préfères. Choisis l'autre réponse." }] },
       { q: "Chez le docteur. Le docteur doit regarder là où tu as mal. Qu'est-ce qui t'aide à te sentir bien ?", fb: "Oui ! Un adulte de confiance est à côté de toi, et le docteur explique ce qu'il fait.", opts: [
         { i: "🩺", l: "On m'explique, et un adulte de confiance est à côté", ok: true }, { i: "😟", l: "Personne n'est avec moi et on ne me dit rien", fb: "Ça, ça met un nuage. Et l'autre réponse, qu'en penses-tu ?" }] },
-      { q: "Pendant un soin, tu sens un nuage : ça te gêne. Que peux-tu faire ?", fb: "Tu peux dire : Stop, ça me gêne, explique-moi. Même à quelqu'un que tu aimes, même au docteur.", opts: [
+      { q: "Pendant un soin, tu sens un nuage : ça te gêne. Que peux-tu faire ?", fb: "Tu peux dire : « Stop, ça me gêne, explique-moi. » Même à quelqu'un que tu aimes, même au docteur.", opts: [
         { i: "✋", l: "Dire : stop, ça me gêne", ok: true }, { i: "🤐", l: "Ne rien dire", fb: "Ce que tu ressens est important. Essaie encore !" }] },
       { q: "Quelqu'un veut t'aider à te laver. Mais tu sais le faire, et tu n'as pas envie. Que peux-tu dire ?", fb: "Non merci, je sais le faire !", opts: [
         { i: "💪", l: "Non merci, je le fais moi-même", ok: true }, { i: "😣", l: "Je laisse faire, même si je n'ai pas envie", fb: "Tu as le droit de dire non merci. Regarde l'autre réponse." }] },
@@ -166,13 +166,13 @@ const GAMES = {
       { q: "Et là ? Que fais-tu ?", pic: "🫣", cap: "Ton ami·e ne dit rien et se cache.", fb: "Oui ! Quand on ne sait pas, on demande, et on attend.", opts: [
         { i: "🙋", l: "J'attends et je demande", ok: true }, { i: "🤗", l: "Je fais le câlin", fb: "Il/elle n'a pas dit oui. Choisis l'autre réponse." }] }] }],
   11: [{ type: "quiz", rounds: [
-      { q: "Tu ris aux chatouilles. Puis tu en as assez et tu dis : Stop ! Que fait ton ami·e ?", fb: "Il/elle arrête tout de suite. Bravo !", opts: [
+      { q: "Tu ris aux chatouilles. Puis tu en as assez et tu dis : « Stop ! » Que fait ton ami·e ?", fb: "Il/elle arrête tout de suite. Bravo !", opts: [
         { i: "🛑", l: "Il/elle arrête tout de suite", ok: true }, { i: "😆", l: "Il/elle continue, c'est rigolo", fb: "Tu as dit stop ! Et l'autre réponse, qu'en penses-tu ?" }] },
       { q: "Tu as dit oui pour jouer. Maintenant tu n'as plus envie. As-tu le droit de changer d'avis ?", fb: "Oui ! Oui tout à l'heure, non maintenant, c'est permis.", opts: [
         { i: "👍", l: "Oui, j'ai le droit", ok: true }, { i: "👎", l: "Non, trop tard", fb: "Si, tu peux changer d'avis ! Essaie encore !" }] },
       { q: "Hier, ton ami·e voulait bien être pris·e en photo. Aujourd'hui, il/elle dit non. Que fais-tu ?", fb: "Tu respectes son non. Oui hier, non aujourd'hui, c'est permis.", opts: [
         { i: "🙂", l: "Je range l'appareil", ok: true }, { i: "📷", l: "Je prends la photo quand même", fb: "Il/elle a dit non aujourd'hui. Regarde l'autre réponse." }] },
-      { q: "Ton ami·e te dit : Stop, je ne veux plus jouer. Que fais-tu ?", fb: "Tu arrêtes. Tu es un·e champion·ne du respect !", opts: [
+      { q: "Ton ami·e te dit : « Stop, je ne veux plus jouer. » Que fais-tu ?", fb: "Tu arrêtes. Tu es un·e champion·ne du respect !", opts: [
         { i: "🛑", l: "J'arrête", ok: true }, { i: "🙉", l: "Je fais comme si je n'entendais pas", fb: "Il/elle a dit stop. Choisis l'autre réponse." }] }] }],
 
   12: [{ type: "doit", btn: "C'est fait !", steps: [
@@ -213,17 +213,17 @@ const GAMES = {
       { i: "🖐️", say: "Personne ne touche mes parties intimes." }, { i: "👀", say: "Personne ne regarde mes parties intimes." },
       { i: "👄", say: "Personne ne met sa bouche sur mes parties intimes." }, { i: "📷", say: "Personne ne prend mes parties intimes en photo." }] },
     { type: "quiz", rounds: [
-      { q: "Quelqu'un dit : C'est juste un jeu ! Est-ce que la règle change ?", fb: "Non. Même si c'est un jeu, la règle reste la même.", opts: [
+      { q: "Quelqu'un dit : « C'est juste un jeu ! » Est-ce que la règle change ?", fb: "Non. Même si c'est un jeu, la règle reste la même.", opts: [
         { i: "🛑", l: "Non, la règle reste la même", ok: true }, { i: "🎲", l: "Oui, si c'est un jeu", fb: "Oh oh ! L'alarme sonne. Choisis l'autre réponse." }] },
       { q: "Quelqu'un te demande de toucher ou de regarder ses parties intimes, ou te montre des images de parties intimes. Que dit la règle ?", fb: "C'est non aussi. Tu as le droit de refuser, même si on insiste, même si c'est quelqu'un que tu aimes.", opts: [
         { i: "🛑", l: "C'est non aussi", ok: true }, { i: "🤷", l: "Là, c'est permis", fb: "Oh oh ! L'alarme sonne. Et l'autre réponse, qu'en penses-tu ?" }] },
       { q: "Et toi, peux-tu toucher les parties intimes d'un·e autre enfant ?", fb: "Non. La règle est la même pour tout le monde, pour toi aussi.", opts: [
         { i: "🛑", l: "Non, la règle est la même pour moi", ok: true }, { i: "🤷", l: "Oui, si c'est pour rire", fb: "Même pour rire, c'est non. Essaie encore !" }] },
-      { q: "Et si c'est quelqu'un que j'aime beaucoup ?", fb: "La règle reste la même, pour tout le monde.", opts: [
+      { q: "Et si c'est quelqu'un que tu aimes beaucoup ?", fb: "La règle reste la même, pour tout le monde.", opts: [
         { i: "🛑", l: "La règle reste la même", ok: true }, { i: "🤷", l: "Alors c'est permis", fb: "Oh oh ! L'alarme sonne. Regarde l'autre réponse." }] },
-      { q: "Et pour un soin, quand on m'aide à me laver ou chez le docteur ?", fb: "Un soin, ce n'est pas un jeu : on m'explique pourquoi, et je peux toujours dire si ça me gêne.", opts: [
+      { q: "Et pour un soin, quand on t'aide à te laver ou chez le docteur ?", fb: "Un soin, ce n'est pas un jeu : on t'explique pourquoi, et tu peux toujours dire si ça te gêne.", opts: [
         { i: "💬", l: "On m'explique, et je peux dire si ça me gêne", ok: true }, { i: "🎲", l: "C'est comme un jeu", fb: "Non, un soin s'explique. Choisis l'autre réponse." }] },
-      { q: "Mon alarme fait : Oh oh, il y a quelque chose de bizarre. Qu'est-ce que je fais ?", fb: "Oui ! J'en parle à un adulte de confiance.", opts: [
+      { q: "Ton alarme fait : « Oh oh, il y a quelque chose de bizarre. » Que fais-tu ?", fb: "Oui ! Tu en parles à un adulte de confiance.", opts: [
         { i: "🗣️", l: "J'en parle à un adulte de confiance", ok: true }, { i: "🤐", l: "Je garde ça pour moi", fb: "Tu peux en parler. Et l'autre réponse, qu'en penses-tu ?" }] }] }],
 
   17: [{ type: "find", build: parcScene, prompts: [
@@ -267,15 +267,15 @@ const GAMES = {
       { i: "✌️", l: "Le troisième doigt", say: "Dis le nom d'un adulte de l'école ou de la crèche avec qui tu te sens bien." },
       { i: "🤟", l: "Le quatrième doigt", say: "Dis le nom d'un autre adulte qui t'aide quand tu as un souci." },
       { i: "🖐️", l: "Le petit doigt", say: "Encore un adulte avec qui tu te sens toujours bien." }] },
-    { type: "quiz", rounds: [{ q: "Un adulte de confiance, c'est quelqu'un...", fb: "Oui ! Et il respecte ta bulle. Ces adultes sont là pour te protéger.", opts: [
-      { i: "😊", l: "avec qui je me sens bien et qui m'aide", ok: true }, { i: "😬", l: "qui me fait un peu peur", fb: "Non, avec lui on se sent bien. Regarde l'autre réponse." }] },
+    { type: "quiz", rounds: [{ q: "Un adulte de confiance, c'est quelqu'un...", fb: "Oui ! Et cette personne respecte ta bulle. Ces adultes sont là pour te protéger.", opts: [
+      { i: "😊", l: "avec qui je me sens bien et qui m'aide", ok: true }, { i: "😬", l: "qui me fait un peu peur", fb: "Non, avec un adulte de confiance, on se sent bien. Regarde l'autre réponse." }] },
       { q: "Et si un adulte de ma main ne respecte pas les règles ?", fb: "Oui ! Tu en parles à un autre adulte de ta main. C'est pour ça qu'elle a cinq doigts.", opts: [
         { i: "🗣️", l: "J'en parle à un autre adulte de ma main", ok: true }, { i: "🤐", l: "Je ne dis rien, puisque c'est un adulte de ma main", fb: "Même un adulte de ta main doit respecter les règles. Regarde l'autre réponse." }] }] }],
 
   22: [{ type: "quiz", path: true, rounds: [
       { q: "Tu as un souci. Tu vas voir un adulte de confiance. Mais l'adulte est occupé et n'écoute pas. Que fais-tu ?", fb: "Oui ! Tu vas voir un autre adulte.", opts: [
         { i: "🚶", l: "Je vais voir un autre adulte", ok: true }, { i: "😶", l: "Je garde mon souci pour moi", fb: "Ton souci est important. Choisis l'autre réponse." }] },
-      { q: "Le deuxième adulte dit : Plus tard, plus tard. Que fais-tu ?", fb: "Tu continues ! Quand c'est important, on n'abandonne pas.", opts: [
+      { q: "Le deuxième adulte dit : « Plus tard, plus tard. » Que fais-tu ?", fb: "Tu continues ! Quand c'est important, on n'abandonne pas.", opts: [
         { i: "😞", l: "J'abandonne", fb: "Non, tu continues jusqu'à ce qu'on t'écoute. Et l'autre réponse, qu'en penses-tu ?" }, { i: "💪", l: "Je vais voir encore un autre adulte", ok: true }] },
       { q: "Tu n'oses pas encore en parler à un adulte. À qui d'autre peux-tu le dire ?", fb: "Oui ! Un·e ami·e en qui tu as confiance peut t'aider à en parler à un adulte.", opts: [
         { i: "🧑‍🤝‍🧑", l: "À un·e ami·e en qui j'ai confiance", ok: true }, { i: "🤐", l: "À personne", fb: "Tu n'as pas à rester sans aide. Essaie encore !" }] },
