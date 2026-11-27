@@ -228,6 +228,20 @@ const INFO = {
 <h3>Limites</h3>
 <p>Ce calendrier est une ressource de sensibilisation. Il ne remplace pas l'avis d'un·e professionnel·le de santé, de l'enfance ou du droit. En cas d'inquiétude pour un enfant, appelez le <strong>119</strong>.</p>`
   },
+  ecrire: {
+    title: "Nous écrire",
+    html: `
+<p class="lead">Vous avez une remarque, un commentaire ? Vous voulez en savoir plus sur la démarche, ou tout simplement laisser un message ? Nous serions ravi·es d'échanger avec vous et de savoir comment le jeu a été perçu au sein de votre famille !</p>
+<p class="mailline">Écrivez-nous à <a href="mailto:calendriersuperpouvoirs@gmail.com?subject=Le%20calendrier%20des%20super-pouvoirs">calendriersuperpouvoirs@gmail.com</a></p>
+<div class="mailbtns">
+<a class="mailbtn main" href="mailto:calendriersuperpouvoirs@gmail.com?subject=Le%20calendrier%20des%20super-pouvoirs">Ouvrir ma messagerie</a>
+<a class="mailbtn" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=calendriersuperpouvoirs@gmail.com&amp;su=Le%20calendrier%20des%20super-pouvoirs" target="_blank" rel="noopener">Écrire avec Gmail</a>
+<a class="mailbtn" href="https://outlook.live.com/mail/0/deeplink/compose?to=calendriersuperpouvoirs@gmail.com&amp;subject=Le%20calendrier%20des%20super-pouvoirs" target="_blank" rel="noopener">Écrire avec Outlook</a>
+<button type="button" class="mailbtn" data-copy="calendriersuperpouvoirs@gmail.com">Copier l'adresse</button>
+</div>
+<p class="note">« Ouvrir ma messagerie » lance l'application e-mail de votre appareil (Mail sur Mac et iPhone, par exemple). Si rien ne s'ouvre, utilisez Gmail, Outlook, ou copiez l'adresse.</p>
+<div class="box119"><strong>Cette adresse n'a pas vocation à recevoir des signalements.</strong> Elle n'est pas consultée en continu et ne permet pas d'agir en urgence. En cas d'inquiétude pour un enfant, appelez le <strong>119</strong>, gratuit, 24h/24. En cas de danger immédiat : le <strong>17</strong> ou le <strong>112</strong>. Les autres numéros sont dans <button type="button" class="inlinelink" data-info="contacts">« Contacts utiles »</button>.</div>`
+  },
   parents: {
     title: "Espace parents", sub: "Conseils pratiques pour accompagner votre enfant",
     html: `

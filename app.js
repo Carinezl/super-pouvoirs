@@ -228,6 +228,12 @@
   }
   // Liens d'une rubrique vers une autre, à l'intérieur de la fenêtre
   $("dlgPanel").addEventListener("click", (e) => { const b = e.target.closest("[data-info]"); if (b) openInfo(b.dataset.info); });
+  // Bouton « Copier l'adresse » de la page « Nous écrire ».
+  $("dlgPanel").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-copy]"); if (!b) return;
+    const txt = b.dataset.copy, ok = () => toast("Adresse copiée : " + txt), ko = () => toast("Copie impossible ici. L'adresse est : " + txt, 7000);
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(ok, ko); else ko();
+  });
   $("tabKid").addEventListener("click", () => showTab("kid"));
   $("tabAdult").addEventListener("click", () => showTab("adult"));
   $("dlgClose").addEventListener("click", () => dlg.close());
