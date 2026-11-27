@@ -52,7 +52,7 @@ const GAMES = {
     { q: "Et ses pieds ?", zone: "pieds", fb: "Oui, les pieds ! Toi aussi, tu as tout ça. Tu connais ton corps." }] }],
 
   2: [{ type: "figure", suit: "#1d2fa8", stripes: true, prompts: [
-      { q: "Bonhomme est en slip de bain. Touche ce qui est caché sous son slip de bain.", zone: "maillot", fb: "Oui ! Sous le slip de bain, ce sont les parties intimes. Elles sont à toi." }] },
+      { q: "Bonhomme est en slip de bain. Touche ce qui est caché sous son slip de bain.", zone: "maillot", fb: "Oui ! Les parties intimes, ce sont les parties du corps que cachent les sous-vêtements et le maillot de bain : les fesses, le sexe, et aussi la poitrine. Elles sont à toi." }] },
     { type: "doit", btn: "Je l'ai dit !", steps: [
       { i: "🗣️", l: "Les fesses", say: "Les fesses. Tout le monde en a !" },
       { i: "🗣️", l: "La poitrine", say: "La poitrine. Tout le monde en a une !" },
@@ -209,13 +209,13 @@ const GAMES = {
       { q: "Et quand tu sens un nuage, que peux-tu faire ?", fb: "Oui ! Tu peux le dire, et en parler.", opts: [
         { i: "✋", l: "Je dis non et j'en parle", ok: true }, { i: "🤐", l: "Je ne dis rien", fb: "Tu peux le dire ! Regarde l'autre réponse." }] }] }],
 
-  16: [{ type: "taps", q: "Il y a quatre règles d'or, que tout le monde doit respecter. Si quelqu'un ne les respecte pas, une alarme se déclenche dans ton corps et fait : « Oh oh ! » Découvrons ensemble ces règles : touche chaque image.", items: [
+  16: [{ type: "taps", q: "Il y a quatre règles d'or, que tout le monde doit respecter : c'est la loi, et elle protège tous les enfants. Si quelqu'un ne les respecte pas, une alarme se déclenche dans ton corps et fait : « Oh oh ! » Découvrons ensemble ces règles : touche chaque image.", items: [
       { i: "🖐️", say: "Personne ne touche mes parties intimes." }, { i: "👀", say: "Personne ne regarde mes parties intimes." },
       { i: "👄", say: "Personne ne met sa bouche sur mes parties intimes." }, { i: "📷", say: "Personne ne prend mes parties intimes en photo." }] },
     { type: "quiz", rounds: [
       { q: "Quelqu'un dit : C'est juste un jeu ! Est-ce que la règle change ?", fb: "Non. Même si c'est un jeu, la règle reste la même.", opts: [
         { i: "🛑", l: "Non, la règle reste la même", ok: true }, { i: "🎲", l: "Oui, si c'est un jeu", fb: "Oh oh ! L'alarme sonne. Choisis l'autre réponse." }] },
-      { q: "Quelqu'un te demande de toucher ou de regarder ses parties intimes à lui. Que dit la règle ?", fb: "C'est non aussi. Tu as le droit de refuser, même si on insiste, même si c'est quelqu'un que tu aimes.", opts: [
+      { q: "Quelqu'un te demande de toucher ou de regarder ses parties intimes, ou te montre des images de parties intimes. Que dit la règle ?", fb: "C'est non aussi. Tu as le droit de refuser, même si on insiste, même si c'est quelqu'un que tu aimes.", opts: [
         { i: "🛑", l: "C'est non aussi", ok: true }, { i: "🤷", l: "Là, c'est permis", fb: "Oh oh ! L'alarme sonne. Et l'autre réponse, qu'en penses-tu ?" }] },
       { q: "Et toi, peux-tu toucher les parties intimes d'un·e autre enfant ?", fb: "Non. La règle est la même pour tout le monde, pour toi aussi.", opts: [
         { i: "🛑", l: "Non, la règle est la même pour moi", ok: true }, { i: "🤷", l: "Oui, si c'est pour rire", fb: "Même pour rire, c'est non. Essaie encore !" }] },
@@ -268,7 +268,9 @@ const GAMES = {
       { i: "🤟", l: "Le quatrième doigt", say: "Dis le nom d'un autre adulte qui t'aide quand tu as un souci." },
       { i: "🖐️", l: "Le petit doigt", say: "Encore un adulte avec qui tu te sens toujours bien." }] },
     { type: "quiz", rounds: [{ q: "Un adulte de confiance, c'est quelqu'un...", fb: "Oui ! Et il respecte ta bulle. Ces adultes sont là pour te protéger.", opts: [
-      { i: "😊", l: "avec qui je me sens bien et qui m'aide", ok: true }, { i: "😬", l: "qui me fait un peu peur", fb: "Non, avec lui on se sent bien. Regarde l'autre réponse." }] }] }],
+      { i: "😊", l: "avec qui je me sens bien et qui m'aide", ok: true }, { i: "😬", l: "qui me fait un peu peur", fb: "Non, avec lui on se sent bien. Regarde l'autre réponse." }] },
+      { q: "Et si un adulte de ma main ne respecte pas les règles ?", fb: "Oui ! Tu en parles à un autre adulte de ta main. C'est pour ça qu'elle a cinq doigts.", opts: [
+        { i: "🗣️", l: "J'en parle à un autre adulte de ma main", ok: true }, { i: "🤐", l: "Je ne dis rien, puisque c'est un adulte de ma main", fb: "Même un adulte de ta main doit respecter les règles. Regarde l'autre réponse." }] }] }],
 
   22: [{ type: "quiz", path: true, rounds: [
       { q: "Tu as un souci. Tu vas voir un adulte de confiance. Mais l'adulte est occupé et n'écoute pas. Que fais-tu ?", fb: "Oui ! Tu vas voir un autre adulte.", opts: [
