@@ -94,7 +94,7 @@
       const cls = ["win", shape, door ? "door" : "", done ? "done" : "", open ? "" : "locked", isToday ? "today bobber" : ""].join(" ");
       const label = `${door ? "Porte" : "Fenêtre"} ${n}` + (open ? ` : ${DAYS[n - 1].t}` + (done ? ", réussie" : "") : `, s'ouvre le ${n === 1 ? "1er" : n} décembre`);
       const char = done ? `<svg class="peek p${(n % 4) + 1}" viewBox="0 0 120 130" preserveAspectRatio="xMidYMax meet"><use href="#c-${CHARS[n - 1]}"/></svg>` : "";
-      return `<div class="cell"><button type="button" class="${cls}" data-day="${n}" aria-label="${label}" style="--bg:${bg};--num-c:${num};--shade:${shade};--mul:${MUL[bg] || .28};${size}">
+      return `<div class="cell${door ? " c-door" : n === 18 ? " c-end" : ""}"><button type="button" class="${cls}" data-day="${n}" aria-label="${label}" style="--bg:${bg};--num-c:${num};--shade:${shade};--mul:${MUL[bg] || .28};${size}">
         <span class="pane" aria-hidden="true">${char}${door ? WREATH : ""}</span>
         <span class="num">${n}</span><span class="sill" aria-hidden="true"></span>
         ${done ? CHECK : ""}${door ? '<span class="knob" aria-hidden="true"></span>' : ""}${isToday ? '<span class="tag">Aujourd\'hui</span>' : ""}</button></div>`;
