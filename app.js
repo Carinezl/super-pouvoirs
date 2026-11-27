@@ -165,7 +165,7 @@
       say(text) { const s = $("sayText"); if (s) s.textContent = text; },
       prevTitle: current.n > 1 ? DAYS[current.n - 2].t : "", // titre de la veille, affiché pendant le « Petit rappel d'hier »
       pause: (text) => Math.min(6500, 1300 + text.length * 60),
-      later(fn, ms) { setTimeout(() => { if (id === runId && dlg.open) fn(); }, ms); },
+      later(fn, ms) { setTimeout(function run() { if (id !== runId || !dlg.open) return; if (kidStash) return kidWait.push(run); fn(); }, ms); }, // en pause tant que la fiche adulte est affichée
       markDone() { const n = current.n; if (!save.done.includes(n)) { save.done.push(n); persist(); justWon = n; } renderTiles(); const pt = $("powerText"); if (pt) pt.textContent = `Pouvoir gagné : ${current.day.p}`; },
       types: { creator: stageCreator, diploma: stageDiploma }
     };
@@ -197,13 +197,21 @@
     });
   }
 
-  function showTab(tab) {
-    runId++;
+  // Passer du jeu à la fiche adulte ne fait pas recommencer le jeu : son écran est mis de côté, puis remis tel quel.
+  let kidStash = null, kidWait = [];
+  function showTab(tab, fresh) {
+    const onKid = $("tabKid").getAttribute("aria-selected") === "true";
+    if (!fresh && ((tab === "kid" && onKid && !kidStash) || (tab === "adult" && kidStash))) return; // déjà sur cet onglet
+    if (tab === "adult") { kidStash = document.createDocumentFragment(); kidStash.append(...$("dlgPanel").childNodes); }
     $("tabKid").setAttribute("aria-selected", tab === "kid");
     $("tabAdult").setAttribute("aria-selected", tab === "adult");
     const d = current.day, done = save.done.includes(current.n);
     $("dlgPanel").classList.toggle("longread", tab === "adult");
-    if (tab === "kid") {
+    if (tab === "kid" && kidStash && !fresh) {
+      $("dlgPanel").replaceChildren(kidStash); kidStash = null;
+      const w = kidWait; kidWait = []; w.forEach((f) => f());
+    } else if (tab === "kid") {
+      kidStash = null; kidWait = [];
       $("dlgPanel").innerHTML = `<div class="say">${guide()}<p class="bubble" id="sayText" aria-live="polite"></p></div>
         <div id="gameMount"></div>
         ${current.n === 0 || current.n === 24 ? "" : `<div class="power"><i class="badge on" aria-hidden="true" style="background:${BADGE_COLS[(current.n - 1) % BADGE_COLS.length]}"></i><span id="powerText">${done ? "Pouvoir gagné" : "Pouvoir à gagner"} : ${d.p}</span></div>`}`;
@@ -228,11 +236,11 @@
     $("dlgTabs").hidden = n === 0; // pas de fiche adulte pour le choix du personnage
     dlg.classList.remove("reading");
     dlg.showModal();
-    showTab("kid");
+    showTab("kid", true);
   }
   function openInfo(key) {
     const info = INFO[key];
-    current = null; runId++;
+    current = null; runId++; kidStash = null; kidWait = [];
     $("dlgNum").hidden = true;
     $("dlgKicker").textContent = info.kicker || ""; $("dlgSub").textContent = info.sub || ""; $("dlgSub").hidden = false; $("dlgSub").className = "";
     $("dlgTitle").textContent = info.title;
@@ -254,7 +262,7 @@
   $("tabAdult").addEventListener("click", () => showTab("adult"));
   $("dlgClose").addEventListener("click", () => dlg.close());
   dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
-  dlg.addEventListener("close", () => { runId++; if (justWon) { const n = justWon; justWon = 0; flyToBadge(n); } });
+  dlg.addEventListener("close", () => { runId++; kidStash = null; kidWait = []; if (justWon) { const n = justWon; justWon = 0; flyToBadge(n); } });
 
   // La pastille du pouvoir gagné s'envole jusqu'à sa place dans la frise.
   let justWon = 0;
