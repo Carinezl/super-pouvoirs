@@ -482,8 +482,31 @@
     if (musicOn) startMusic().catch(musicFail);
   };
   GESTURES.forEach((ev) => document.addEventListener(ev, firstGesture, true));
-  // Si le navigateur a mis le son en pause (onglet en arrière-plan, premier geste refusé), le geste suivant le relance.
-  ["click", "touchend"].forEach((ev) => document.addEventListener(ev, () => { if (ac && ac.state === "suspended") ac.resume().catch(() => {}); }, true));
+  // Retour sur la page après un passage par une autre appli ou un autre onglet : on relance le son.
+  // En arrière-plan, on le met nous-mêmes en pause : l'état est alors connu au retour.
+  function wakeMusic(gesture) {
+    if (!musicOn || !ac) return;
+    if (ac.state === "closed") return rebuildMusic();
+    if (ac.state === "running") return;
+    const p = ac.resume(); if (p && p.catch) p.catch(() => {});
+    // Si le téléphone a coupé le son pour de bon, un geste permet de repartir sur une lecture neuve.
+    if (gesture) setTimeout(() => { if (musicOn && ac && ac.state !== "running") rebuildMusic(); }, 1500);
+  }
+  function rebuildMusic() {
+    if (musicBusy) return; // un chargement est en cours, on le laisse finir
+    try { if (musicNode) musicNode.stop(); } catch (e) {}
+    try { if (ac && ac.state !== "closed") ac.close(); } catch (e) {}
+    musicNode = null; musicGain = null; ac = null; musicBuf = null;
+    startMusic().catch(() => {});
+  }
+  document.addEventListener("visibilitychange", () => {
+    if (!ac || ac.state === "closed") return;
+    if (document.hidden) { if (ac.state === "running") ac.suspend().catch(() => {}); }
+    else wakeMusic(false);
+  });
+  window.addEventListener("pageshow", () => wakeMusic(false));
+  window.addEventListener("focus", () => wakeMusic(false));
+  ["click", "touchend"].forEach((ev) => document.addEventListener(ev, () => wakeMusic(true), true));
   showMusic();
 
   renderTiles(); renderHero(); showUnlock();
