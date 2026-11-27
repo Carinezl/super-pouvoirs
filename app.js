@@ -109,10 +109,27 @@
     openDay(n);
   });
 
+  // ---------- Réglages : débloquer toutes les fenêtres, réinitialiser ----------
+  function setSettings(on) { $("settingsBar").hidden = !on; $("settingsBtn").setAttribute("aria-expanded", on); }
+  $("settingsBtn").addEventListener("click", () => setSettings($("settingsBar").hidden));
+  const showUnlock = () => { const u = $("unlockAll"); u.setAttribute("aria-pressed", save.unlockAll); u.textContent = save.unlockAll ? "Bloquer à nouveau les fenêtres" : "Débloquer toutes les fenêtres"; };
+  $("unlockAll").addEventListener("click", () => {
+    save.unlockAll = !save.unlockAll; persist(); renderTiles(); showUnlock();
+    toast(save.unlockAll ? "Toutes les fenêtres sont débloquées." : "Les fenêtres suivent de nouveau le calendrier.");
+  });
+  $("resetBtn").addEventListener("click", () => $("confirmDlg").showModal());
+  $("confirmNo").addEventListener("click", () => $("confirmDlg").close());
+  $("confirmYes").addEventListener("click", () => {
+    $("confirmDlg").close();
+    save.done = []; save.hero = null; save.unlockAll = false; persist(); renderTiles(); renderHero(); showUnlock();
+    toast("Le jeu est réinitialisé.");
+  });
+
   // ---------- Couverture : ouvrir et refermer la maison ----------
   function setOpen(open) {
     $("cover").hidden = open;
-    $("intro").hidden = open; $("closeBtn").hidden = !open; // l'introduction ne s'affiche que sur la couverture
+    $("intro").hidden = open; $("closeBtn").hidden = !open;
+    $("settingsBtn").hidden = !open; if (!open) setSettings(false); // l'introduction ne s'affiche que sur la couverture
     $("house").hidden = !open;
     if (open) { $("house").classList.remove("pop-in"); void $("house").offsetWidth; $("house").classList.add("pop-in"); window.scrollTo({ top: 0 }); }
   }
@@ -206,23 +223,6 @@
     $("dlgPanel").innerHTML = info.html;
     $("dlgPanel").classList.add("longread"); dlg.classList.add("reading");
     document.querySelector(".dlg-body").scrollTop = 0;
-    const u = $("unlockAll");
-    if (u) {
-      const show = () => { u.setAttribute("aria-pressed", save.unlockAll); u.textContent = save.unlockAll ? "Refermer les fenêtres à venir" : "Ouvrir toutes les fenêtres"; };
-      show();
-      u.addEventListener("click", () => { save.unlockAll = !save.unlockAll; persist(); renderTiles(); show(); toast(save.unlockAll ? "Toutes les fenêtres sont ouvertes." : "Les fenêtres suivent de nouveau le calendrier."); });
-      // Confirmation en deux clics, sans boîte de dialogue du navigateur.
-      const rb = $("resetBtn"); let armed = null;
-      rb.addEventListener("click", () => {
-        if (!armed) {
-          rb.textContent = "Confirmer : tout effacer ?"; rb.classList.add("danger");
-          armed = setTimeout(() => { armed = null; rb.textContent = "Réinitialiser le jeu"; rb.classList.remove("danger"); }, 5000);
-          return;
-        }
-        clearTimeout(armed); armed = null; rb.textContent = "Réinitialiser le jeu"; rb.classList.remove("danger");
-        save.done = []; save.hero = null; save.unlockAll = false; persist(); renderTiles(); renderHero(); show(); toast("Le jeu est réinitialisé.");
-      });
-    }
     if (!dlg.open) dlg.showModal();
   }
   // Liens d'une rubrique vers une autre, à l'intérieur de la fenêtre
@@ -453,7 +453,7 @@
   ["click", "touchend"].forEach((ev) => document.addEventListener(ev, () => { if (ac && ac.state === "suspended") ac.resume().catch(() => {}); }, true));
   showMusic();
 
-  renderTiles(); renderHero();
+  renderTiles(); renderHero(); showUnlock();
 
   // ---------- Ponctuation française ----------
   // Une espace insécable avant : ; ! ? » et après « : ces signes ne se retrouvent jamais seuls en début de ligne.

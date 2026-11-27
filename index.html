@@ -96,8 +96,13 @@
     <button type="button" class="pill" id="musicBtn" aria-pressed="true">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
       Musique : <span id="musicLabel">oui</span></button>
+    <button type="button" class="pill gearp" id="settingsBtn" aria-expanded="false" aria-controls="settingsBar" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></svg>Réglages</button>
   </nav>
 </header>
+<div class="setbar" id="settingsBar" hidden>
+  <button type="button" class="sb" id="unlockAll" aria-pressed="false">Débloquer toutes les fenêtres</button>
+  <button type="button" class="sb" id="resetBtn">Réinitialiser le jeu</button>
+</div>
 
 <!-- Couverture : la maison fermée -->
 <section id="cover">
@@ -387,6 +392,14 @@
 <div id="toast" role="status" aria-live="polite"></div>
 
 <!-- Fenêtre d'une case -->
+<dialog id="confirmDlg" aria-labelledby="confirmTitle">
+  <div class="confirm">
+    <h2 id="confirmTitle">Confirmez-vous la réinitialisation du jeu ?</h2>
+    <p>Cela va faire perdre tous les super-pouvoirs acquis jusque-là.</p>
+    <div class="center"><button type="button" class="cta alt" id="confirmNo">Non</button><button type="button" class="cta danger" id="confirmYes">Oui</button></div>
+  </div>
+</dialog>
+
 <dialog id="dlg" aria-labelledby="dlgTitle">
   <div class="dlg">
     <div class="snowcap small" aria-hidden="true"></div>

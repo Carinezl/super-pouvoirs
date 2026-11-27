@@ -221,7 +221,7 @@ const INFO = {
 <ul>
 <li>Ce site ne collecte aucune donnée personnelle : pas de compte, pas de formulaire, pas de statistiques de visite, pas de publicité.</li>
 <li>Il n'utilise aucun cookie de suivi et ne transmet aucune donnée à des tiers.</li>
-<li>Le personnage choisi, son nom, les jeux réussis et le réglage de la musique sont enregistrés uniquement dans votre navigateur, sur votre appareil. Vous pouvez les effacer à tout moment avec « Réinitialiser le jeu », dans l'espace parents.</li>
+<li>Le personnage choisi, son nom, les jeux réussis et le réglage de la musique sont enregistrés uniquement dans votre navigateur, sur votre appareil. Vous pouvez les effacer à tout moment avec « Réinitialiser le jeu », dans les réglages du calendrier.</li>
 </ul>
 <h3>Liens vers d'autres sites</h3>
 <p>Ce site renvoie vers des sites extérieurs, qui ont leurs propres règles. Son éditrice n'est pas responsable de leur contenu.</p>
@@ -260,8 +260,8 @@ const INFO = {
 </ul>
 <h4>Méthodologie</h4>
 <p>Les jeux et les fiches ont été construits à partir de documents publiés par des professionnel·les et des institutions reconnues. Une relecture par un·e professionnel·le de l'enfance est en cours. Une remarque, une correction à proposer ? Écrivez à <a href="mailto:calendriersuperpouvoirs@gmail.com">calendriersuperpouvoirs@gmail.com</a>. <button type="button" class="inlinelink" data-info="apropos">En savoir plus dans « À propos »</button></p>
-<h4>Le configurer</h4>
-<div class="config"><button type="button" class="ghost" id="unlockAll" aria-pressed="false">Ouvrir toutes les fenêtres</button><button type="button" class="ghost" id="resetBtn">Réinitialiser le jeu</button></div>
+<h4>Découvrir le calendrier à l'avance</h4>
+<p>Une fois la maison ouverte, le bouton « Réglages », en haut de la page, permet de débloquer toutes les fenêtres pour les parcourir avant votre enfant, ou de réinitialiser le jeu.</p>
 </section>
 
 <section class="sec s2">
