@@ -282,13 +282,12 @@ const INFO = {
 <li>rapport au corps : refus de se déshabiller, de se laver ou d'être touché ;</li>
 <li>retours en arrière : pipi au lit, peur de dormir seul, refus panique d'aller dans un lieu.</li>
 </ul>
-<p>Ces signes peuvent avoir bien d'autres causes, comme l'arrivée d'un bébé. Ils ne prouvent rien, mais ils se prennent au sérieux.</p>
+<p>Ces signes peuvent avoir bien d'autres causes (ex : arrivée d'un bébé dans la famille). Ils ne prouvent rien, mais ils se prennent au sérieux.</p>
 <p>À qui en parler : votre médecin, un·e psychologue ou pédopsychiatre, le centre médico-psychologique (CMP) de votre secteur, le ou la psychologue scolaire.</p>
 </section>
 
 <section class="sec s3">
 <h3><span class="n">3</span>Si votre enfant vous confie quelque chose</h3>
-<p>Un enfant met souvent longtemps à parler, et son silence ne veut pas dire que tout va bien.</p>
 <h4>Ce que vous pouvez dire</h4>
 <p class="key">« Je te crois. » « Ce n'est pas ta faute. » « Merci de m'en avoir parlé, c'est courageux. » « Personne n'a le droit de te faire ça. » « Je vais t'aider. »</p>
 <h4>Ce qu'il faut faire</h4>
@@ -306,12 +305,13 @@ const INFO = {
 <li>Promettre quoi que ce soit sur la suite, ou de garder le secret.</li>
 <li>Minimiser ou culpabiliser : « Ce n'est pas grave », « Pourquoi tu n'as rien dit plus tôt ? ».</li>
 <li>Gronder ou punir un enfant parce qu'il a parlé.</li>
+<li>Orienter ses réponses ou citer un prénom.</li>
 </ul>
 <h4>Si vous avez un doute et qu'il ou elle n'a rien dit</h4>
 <ul>
+<li>Un enfant met souvent longtemps à parler, et son silence ne veut pas dire que tout va bien.</li>
 <li>Plutôt que de questionner, appuyez-vous sur un support : un album, une courte vidéo, un jeu de ce calendrier. Laissez votre enfant réagir spontanément.</li>
 <li>Demandez simplement : « À quoi cela te fait penser ? »</li>
-<li>N'orientez pas ses réponses et ne citez aucun prénom.</li>
 <li>Des idées de supports : <button type="button" class="inlinelink" data-info="ressources">voir « Ressources »</button>.</li>
 </ul>
 </section>`
