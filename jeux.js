@@ -229,8 +229,6 @@ const GAMES = {
         { i: "🛑", l: "Non, la règle est la même pour moi", ok: true }, { i: "🤷", l: "Oui, si c'est pour rire", fb: "Même pour rire, c'est non. Essaie encore !" }] },
       { q: "Et si c'est quelqu'un que tu aimes beaucoup ?", fb: "La règle reste la même, pour tout le monde.", opts: [
         { i: "🛑", l: "La règle reste la même", ok: true }, { i: "🤷", l: "Alors c'est permis", fb: "Oh oh ! L'alarme sonne. Regarde l'autre réponse." }] },
-      { q: "Et pour un soin, quand on t'aide à te laver ou chez le docteur ?", fb: "Un soin, ce n'est pas un jeu : on t'explique pourquoi, et tu peux toujours dire si ça te gêne.", opts: [
-        { i: "💬", l: "On m'explique, et je peux dire si ça me gêne", ok: true }, { i: "🎲", l: "C'est comme un jeu", fb: "Non, un soin s'explique. Choisis l'autre réponse." }] },
       { q: "Ton alarme fait : « Oh oh, il y a quelque chose de bizarre. » Que fais-tu ?", fb: "Oui ! Tu en parles à un adulte de confiance.", opts: [
         { i: "🗣️", l: "J'en parle à un adulte de confiance", ok: true }, { i: "🤐", l: "Je garde ça pour moi", fb: "Tu peux en parler. Et l'autre réponse, qu'en penses-tu ?" }] }] }],
 
