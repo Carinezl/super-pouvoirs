@@ -267,11 +267,11 @@ const INFO = {
 
 <section class="sec s2">
 <h3><span class="n">2</span>Quelques repères entre 3 et 6 ans</h3>
-<p>Découvrir son corps et celui des autres fait partie du développement. Des signes peuvent vous indiquer si leur rapport au corps fait partie d'un développement sain, ou s'il doit susciter une vigilance, voire une inquiétude.</p>
+<p>Découvrir son corps et celui des autres fait partie du développement. Des signes peuvent vous indiquer si le rapport de votre enfant à son corps relève d'une phase de découverte, ou s'il doit susciter une vigilance, voire une inquiétude.</p>
 <div class="levels">
-<div class="lv ok"><strong>Découverte</strong>Poser des questions, jouer au docteur, aimer être nu, explorer son propre corps.</div>
-<div class="lv mid"><strong>Préoccupant</strong>Reposer sans cesse les mêmes questions, se montrer nu en public, observer les autres avec insistance, malgré vos explications.</div>
-<div class="lv hi"><strong>Besoin d'aide</strong>Forcer d'autres enfants, en savoir beaucoup trop pour son âge, se blesser, agir en cachette puis nier.</div>
+<div class="lv ok"><strong>Comportement de découverte</strong>Poser des questions, jouer au docteur, aimer être nu, explorer son propre corps.</div>
+<div class="lv mid"><strong>Comportement préoccupant</strong>Reposer sans cesse les mêmes questions, se montrer nu en public, observer les autres avec insistance, malgré vos explications.</div>
+<div class="lv hi"><strong>Comportement nécessitant une aide professionnelle</strong>Forcer d'autres enfants, en savoir beaucoup trop pour son âge, se blesser, agir en cachette puis nier.</div>
 </div>
 <h4>D'autres signes qui peuvent alerter</h4>
 <p>Un changement soudain et inexpliqué mérite toujours votre attention :</p>
