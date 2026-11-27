@@ -488,9 +488,10 @@ const Jeux = (function () {
     let p = 0; m.innerHTML = "";
     const prog = el("div"); const scene = el("div", "scene-find", st.build());
     // Sur petit écran le parc dépasse : une indication invite à le faire glisser, puis s'efface.
-    const hint = el("p", "swipe-hint", "↔ Fais glisser pour voir tout le parc"); hint.setAttribute("aria-hidden", "true");
+    const hint = el("p", "swipe-hint", '<span class="arr" aria-hidden="true">←</span> Fais glisser pour voir tout le parc <span class="arr r" aria-hidden="true">→</span>'); hint.setAttribute("aria-hidden", "true");
+    const wrap = el("div", "scene-wrap"); wrap.append(scene, hint);
     scene.addEventListener("scroll", () => hint.classList.add("seen"), { passive: true });
-    m.append(prog, scene, hint);
+    m.append(prog, wrap);
     const hit = (g) => {
       const P = st.prompts[p]; if (!g || !P || g.classList.contains("found")) return;
       if (g.dataset.id === P.id) { g.classList.add("found"); ctx.say(P.fb); p++; goOn(ctx, m, ask); }
