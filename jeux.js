@@ -492,6 +492,20 @@ const Jeux = (function () {
     m.append(box);
   };
 
+  // Cherche et trouve : des étoiles jaillissent autour du personnage trouvé.
+  function burst(g) {
+    if (!g.getBBox || (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches)) return;
+    let b; try { b = g.getBBox(); } catch (e) { return; }
+    const NS = "http://www.w3.org/2000/svg", grp = document.createElementNS(NS, "g");
+    grp.setAttribute("class", "burst"); grp.setAttribute("transform", `translate(${b.x + b.width / 2} ${b.y + b.height / 2})`);
+    grp.style.setProperty("--d", Math.max(b.width, b.height) / 2 + 22 + "px");
+    for (let i = 0; i < 8; i++) {
+      const st = document.createElementNS(NS, "path");
+      st.setAttribute("d", "M0 -9L2.5 -2.5L9 0L2.5 2.5L0 9L-2.5 2.5L-9 0L-2.5 -2.5z"); st.style.setProperty("--a", i * 45 + "deg"); grp.append(st);
+    }
+    g.append(grp); setTimeout(() => grp.remove(), 950);
+  }
+
   T.find = (st, m, ctx, next) => {
     let p = 0; m.innerHTML = "";
     const prog = el("div"); const scene = el("div", "scene-find", st.build());
@@ -502,7 +516,7 @@ const Jeux = (function () {
     m.append(prog, wrap);
     const hit = (g) => {
       const P = st.prompts[p]; if (!g || !P || g.classList.contains("found")) return;
-      if (g.dataset.id === P.id) { g.classList.add("found"); ctx.say(P.fb); p++; goOn(ctx, m, ask); }
+      if (g.dataset.id === P.id) { g.classList.add("found"); burst(g); ctx.say(P.fb); p++; goOn(ctx, m, ask); }
       else { shake(g); ctx.say("Ce n'est pas ça, cherche encore !"); }
     };
     scene.addEventListener("click", (e) => hit(e.target.closest("[data-id]")));

@@ -676,3 +676,7 @@ footer{max-width:820px;gap:12px}
 @media (prefers-reduced-motion:reduce){.swipe-hint .arr{animation:none}}
 /* Pictogramme « adulte et enfant » : l'enfant est plus petit */
 .mini{font-size:.62em}
+/* Jour 17 : étoiles qui jaillissent autour du personnage trouvé */
+.burst{pointer-events:none}
+.burst path{fill:var(--yellow);stroke:var(--yellow-d);stroke-width:.8;transform-box:fill-box;transform-origin:center;opacity:0;animation:starFly .85s ease-out}
+@keyframes starFly{0%{opacity:1;transform:rotate(var(--a)) translateY(0) scale(.3)}70%{opacity:1}100%{opacity:0;transform:rotate(var(--a)) translateY(calc(var(--d) * -1)) scale(1.15)}}
