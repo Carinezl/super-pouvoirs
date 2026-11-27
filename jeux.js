@@ -92,8 +92,6 @@ const GAMES = {
         { i: "🌈", l: "Non, tous différents", ok: true }, { i: "👯", l: "Oui, tous pareils", fb: "Regarde bien, ils sont tous différents ! Regarde l'autre réponse." }] },
       { q: "Et toi, ton corps ressemble-t-il exactement à celui d'un autre enfant ?", fb: "Non ! Ton corps est unique, lui aussi.", opts: [
         { i: "⭐", l: "Non, mon corps est unique", ok: true }, { i: "👯", l: "Oui, exactement pareil", fb: "Regarde tes mains, tes yeux, tes cheveux : tu es unique ! Choisis l'autre réponse." }] },
-      { q: "Y a-t-il des jouets ou des couleurs réservés aux filles, ou aux garçons ?", fb: "Non ! Les poupées, les ballons, le rose, le bleu : chacun et chacune choisit ce qu'il/elle aime.", opts: [
-        { i: "🌈", l: "Non, chacun·e choisit ce qui lui plaît", ok: true }, { i: "🚧", l: "Oui, certains pour les filles, d'autres pour les garçons", fb: "Les jouets et les couleurs sont pour tout le monde. Et l'autre réponse, qu'en penses-tu ?" }] },
       { q: "Est-ce qu'on se moque du corps de quelqu'un ?", fb: "Jamais ! Bravo.", opts: [
         { i: "🙅", l: "Non, jamais", ok: true }, { i: "😜", l: "Oui, c'est rigolo", fb: "Ça fait de la peine. Essaie encore !" }] }] }],
 
