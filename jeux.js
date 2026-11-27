@@ -264,7 +264,9 @@ const GAMES = {
       { q: "Tu as promis de ne rien dire, mais ce secret te serre le ventre. Que fais-tu ?", fb: "Oui ! Même si tu as promis, un secret nuage, tu le racontes.", opts: [
         { i: "🗣️", l: "J'en parle quand même à un adulte de confiance", ok: true }, { i: "🤐", l: "Je me tais, puisque j'ai promis", fb: "Même promis, un secret nuage se raconte. Et l'autre réponse, qu'en penses-tu ?" }] },
       { q: "Tu ne sais pas si ton secret est soleil ou nuage. Que fais-tu ?", fb: "Quand tu ne sais pas, tu en parles à un adulte de confiance.", opts: [
-        { i: "🗣️", l: "J'en parle à un adulte de confiance", ok: true }, { i: "🤐", l: "Je le garde pour moi", fb: "Quand on doute, on en parle. Essaie encore !" }] }] }],
+        { i: "🗣️", l: "J'en parle à un adulte de confiance", ok: true }, { i: "🤐", l: "Je le garde pour moi", fb: "Quand on doute, on en parle. Essaie encore !" }] },
+      { q: "Un·e ami·e te raconte un secret. Ce secret lui fait peur ou lui fait de la peine. Que fais-tu ?", fb: "Oui ! Ton ami·e t'a fait confiance. Tu ne gardes pas ce secret pour toi : tu demandes de l'aide à un adulte de confiance.", opts: [
+        { i: "🙋", l: "Je demande de l'aide à un adulte de confiance", ok: true }, { i: "🤐", l: "Je garde le secret pour moi", fb: "Ce secret est trop lourd pour le garder. Regarde l'autre réponse." }] }] }],
 
   21: [{ type: "doit", btn: "J'ai dit un prénom !", hand: true, steps: [
       { i: "👍", l: "Le pouce", say: "Lève ton pouce. Dis le prénom d'un adulte qui s'occupe de toi et avec qui tu te sens bien." },
