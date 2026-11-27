@@ -196,7 +196,7 @@
         <div><h3>Comment en parler</h3><ul>${d.parler.map((x) => `<li>${x}</li>`).join("")}</ul></div>
         ${d.eviter ? `<div><h3>À éviter</h3><p>${d.eviter}</p></div>` : ""}
         ${d.age ? `<div><h3>Selon son âge</h3><p>${d.age}</p></div>` : ""}
-        ${d.jour ? `<div><h3>Dans la journée</h3><p>${d.jour}</p></div>` : ""}
+        ${d.jour ? `<div><h3>Au quotidien</h3><p>${d.jour}</p></div>` : ""}
         ${d.compris ? `<div><h3>Comment voir que c'est compris</h3><p>${d.compris}</p></div>` : ""}
         ${d.plus ? `<div><h3>Pour aller plus loin</h3><p>${d.plus}</p></div>` : ""}
         ${current.n === 24 ? "" : `<p class="note">Si votre enfant ne veut pas jouer, n'insistez pas : proposez-lui de regarder, ou revenez-y un autre jour. Refuser, c'est aussi s'exercer à dire non.</p>`}
