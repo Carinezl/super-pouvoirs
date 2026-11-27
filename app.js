@@ -87,7 +87,7 @@
     $("tiles").innerHTML = ORDER.map((n) => {
       const door = n === 24;
       const [bg, num, shade] = door ? ["#ff7ac0", "#1d2fa8", "rgba(255,255,255,.7)"] : WINS[(n * 3) % WINS.length];
-      const shape = door ? "arch" : SHAPES[(n * 5) % SHAPES.length];
+      const shape = door || n === 15 ? "arch" : SHAPES[(n * 5) % SHAPES.length]; // pas de hublot sur la ligne du bas : le 15 devient une arche
       const open = isOpenDay(n), done = open && save.done.includes(n), isToday = n === jourJ;
       const [w, h] = SIZES[n % SIZES.length];
       const size = door ? "width:92%;height:calc(112% + 12px);margin-bottom:-12px" : shape === "round" ? "" : shape === "arch" ? "width:78%;height:100%" : `width:${w}%;height:${h}%`;
