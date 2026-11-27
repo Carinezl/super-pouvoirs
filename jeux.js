@@ -14,6 +14,7 @@ function parcScene() {
   const heart = (x, y, s) => `<path transform="translate(${x} ${y}) scale(${s})" d="M0 6C-10 -6 -22 6 0 20C22 6 10 -6 0 6z" fill="#ff3b2f"/>`;
   let n = 0; const D = (c, x, y, w) => G("d" + (++n), "Un personnage du parc", N(c, x, y, w));
   return `<svg viewBox="0 0 800 460" role="group" aria-label="Le parc enneigé">
+    <defs><filter id="foundGlow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB"><feMorphology in="SourceAlpha" operator="dilate" radius="3.5" result="d"/><feGaussianBlur in="d" stdDeviation="1.6" result="b"/><feFlood flood-color="#ffd400"/><feComposite in2="b" operator="in" result="halo"/><feMerge><feMergeNode in="halo"/><feMergeNode in="halo"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
     <rect width="800" height="460" fill="#bfe6ff"/>
     <circle cx="70" cy="50" r="30" fill="#ffe680"/><ellipse cx="300" cy="46" rx="56" ry="16" fill="#fff"/><ellipse cx="520" cy="30" rx="44" ry="13" fill="#fff"/>
     <path d="M0 150Q200 96 400 140T800 122V460H0z" fill="#e4f3ff"/>
@@ -503,7 +504,7 @@ const Jeux = (function () {
       const st = document.createElementNS(NS, "path");
       st.setAttribute("d", "M0 -9L2.5 -2.5L9 0L2.5 2.5L0 9L-2.5 2.5L-9 0L-2.5 -2.5z"); st.style.setProperty("--a", i * 45 + "deg"); grp.append(st);
     }
-    g.append(grp); setTimeout(() => grp.remove(), 950);
+    (g.ownerSVGElement || g).append(grp); setTimeout(() => grp.remove(), 950); // dans la scène, pas dans le personnage : le liseré ne coupe pas les étoiles
   }
 
   T.find = (st, m, ctx, next) => {
