@@ -267,7 +267,7 @@ const INFO = {
 
 <section class="sec s2">
 <h3><span class="n">2</span>Quelques repères entre 3 et 6 ans</h3>
-<p>Découvrir son corps et celui des autres fait partie du développement. Ce qui compte : la fréquence, la persistance, et le fait que ce soit imposé ou non à d'autres.</p>
+<p>Découvrir son corps et celui des autres fait partie du développement. Des signes peuvent vous indiquer si leur rapport au corps fait partie d'un développement sain, ou s'il doit susciter une vigilance, voire une inquiétude.</p>
 <div class="levels">
 <div class="lv ok"><strong>Découverte</strong>Poser des questions, jouer au docteur, aimer être nu, explorer son propre corps.</div>
 <div class="lv mid"><strong>Préoccupant</strong>Reposer sans cesse les mêmes questions, se montrer nu en public, observer les autres avec insistance, malgré vos explications.</div>
