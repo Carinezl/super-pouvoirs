@@ -115,7 +115,7 @@
   const showUnlock = () => { const u = $("unlockAll"); u.setAttribute("aria-pressed", save.unlockAll); u.textContent = save.unlockAll ? "Bloquer à nouveau les fenêtres" : "Débloquer toutes les fenêtres"; };
   $("unlockAll").addEventListener("click", () => {
     save.unlockAll = !save.unlockAll; persist(); renderTiles(); showUnlock();
-    toast(save.unlockAll ? "Toutes les fenêtres sont débloquées." : "Les fenêtres suivent de nouveau le calendrier.");
+    toast(save.unlockAll ? "Toutes les fenêtres sont débloquées." : "Les fenêtres s'ouvrent de nouveau, au fur et à mesure du calendrier.");
   });
   $("resetBtn").addEventListener("click", () => $("confirmDlg").showModal());
   $("confirmNo").addEventListener("click", () => $("confirmDlg").close());
