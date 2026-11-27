@@ -248,10 +248,11 @@ const INFO = {
 <ul>
 <li>Du 1<sup>er</sup> au 24 décembre, chaque jour ouvre un petit jeu à faire en famille et une fiche de conseils pour les parents.</li>
 <li>Les jours passés restent ouverts : une fenêtre manquée se rattrape quand vous voulez.</li>
-<li>Jouez ensemble, 5 à 10 minutes : vous lisez les consignes, votre enfant répond.</li>
+<li>Chaque jeu prend 5 à 10 minutes. Jouez ensemble : lisez les consignes à voix haute et votre enfant répond.</li>
+<li>À partir du 2 décembre, chaque jeu démarre par une petite révision de ce qui a été vu la veille. Vous pouvez décider de sauter cette étape et de passer directement à la fiche du jour.</li>
 <li>Chaque fenêtre a un onglet « Fiche adulte » : l'objectif du jour, comment en parler, et des idées pour la journée.</li>
-<li>Si votre enfant n'a pas envie, on reporte. Le petit rappel de la veille peut être passé.</li>
-<li>Une fois la maison ouverte, le bouton « Réglages », en haut de la page, permet de débloquer toutes les fenêtres pour les parcourir avant votre enfant, ou de réinitialiser le jeu.</li>
+<li>Si votre enfant n'a pas envie, on reporte.</li>
+<li>Le bouton « Réglages » permet de débloquer toutes les fenêtres en avance (avant le 24 décembre), ou de réinitialiser le jeu (c'est-à-dire effacer les super-pouvoirs gagnés et le personnage choisi).</li>
 </ul>
 <h4>Quand votre enfant vous pose une question</h4>
 <ul>
