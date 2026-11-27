@@ -146,6 +146,9 @@
   $("coverBtn").addEventListener("click", () => setOpen(true));
   $("openBtn").addEventListener("click", () => setOpen(true));
   $("closeBtn").addEventListener("click", () => setOpen(false));
+  // Une fois l'animation d'ouverture finie, on retire sa classe : la maison, très haute sur téléphone, n'est plus traitée
+  // comme un calque animé (sur certains téléphones Android, des fenêtres pouvaient ne pas se dessiner).
+  $("house").addEventListener("animationend", (e) => { if (e.target === $("house") && e.animationName === "popIn") $("house").classList.remove("pop-in"); });
 
 
   // ---------- Fenêtre d'une case ----------
