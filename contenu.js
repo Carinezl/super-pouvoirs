@@ -20,9 +20,9 @@ const DAYS = [
     o: "Accepter son corps tel qu'il est et respecter celui des autres, sans moquerie.", jour: "Regardez ensemble un album ou des photos : en quoi les personnes sont-elles différentes ?", compris: "Votre enfant remarque les différences entre les personnes sans s'en moquer.", parler: ["« Qu'est-ce que ton corps sait bien faire ? »", "Comparez vos mains : taille, forme, couleur."],
     plus: "« On est tous différents ! », Mai Lan Chapiron (La Martinière)." },
   { t: "Un soin, ça s'explique", p: "Je demande qu'on m'explique",
-    o: "Savoir qu'un soin s'explique et se demande, et oser dire quand il gêne.", age: "Six étapes, c'est long à 3 ans : faites-en trois, et gardez la suite pour le lendemain.", jour: "Au prochain soin (crème, pansement, mouchage), dites ce que vous allez faire et demandez son accord.", compris: "Votre enfant ose dire « je préfère le faire moi-même » ou « ça me gêne ».",
+    o: "Savoir qu'un soin s'explique et se demande, et oser dire quand il gêne.", age: "Six étapes, c'est long à 3 ans : faites-en trois, et gardez la suite pour le lendemain.", jour: "Au prochain soin (crème, pansement, mouchage), dites ce que vous allez faire et demandez son accord. Restez attentif·ve si un adulte insiste pour s'occuper seul du bain ou du coucher.", compris: "Votre enfant ose dire « je préfère le faire moi-même » ou « ça me gêne ».",
     parler: ["Avant un soin, dites ce que vous allez faire et pourquoi, puis demandez : « Tu es d'accord ? Tu préfères le faire toi-même ? »", "Si un soin est indispensable et que votre enfant refuse, expliquez et proposez un choix (maintenant ou dans cinq minutes, toi ou moi) plutôt que de forcer.", "Dites-lui qu'il/elle peut toujours dire « stop, ça me gêne », même à vous, même au docteur."],
-    eviter: "Présenter un geste comme toujours acceptable ou toujours interdit : le même geste peut être un soin, ou ne pas en être un. Restez attentif si un adulte insiste pour s'occuper seul du bain ou du coucher." },
+    eviter: "Présenter un geste comme toujours acceptable ou toujours interdit : le même geste peut être un soin, ou ne pas en être un." },
   { t: "Ma super-bulle", p: "Super-bulle",
     o: "Reconnaître son espace personnel (sa « bulle ») et savoir dire quand on veut plus ou moins de distance.", age: "À 3 ans, mimez la bulle avec les bras avant de jouer.", jour: "Demandez de temps en temps : « Elle est comment, ta bulle, là ? »", compris: "Votre enfant dit quand il lui faut de la place, et accepte que les autres en veuillent aussi.", parler: ["Avec un cerceau ou les bras, montrez « ma bulle aujourd'hui ».", "« Si quelqu'un dit non à un câlin, cela ne veut pas dire que cette personne ne t'aime pas : elle a besoin d'espace. »"] },
   { t: "Bonjour à ma façon", p: "Je choisis",
@@ -84,8 +84,8 @@ const INFO = {
 <div class="contact"><b>116 006</b><span>France Victimes, aide aux victimes. Gratuit, 7j/7.</span></div>
 <div class="contact"><b>3018</b><span>Violences numériques, images et photos. Gratuit, 7j/7, 9h-23h.</span></div>
 <p>Pour signaler en ligne (adultes) : la plateforme « Signaler une violence conjugale, sexuelle ou sexiste » sur <a href="https://www.service-public.gouv.fr/cmi" target="_blank" rel="noopener">service-public.gouv.fr/cmi</a>. Vous pouvez aussi contacter la CRIP de votre département.</p>
-<h3>Focus périscolaire</h3>
-<p>Pour une inquiétude liée à la cantine, à la garderie, au centre de loisirs ou aux activités après la classe.</p>
+<h3>Focus : crèche, école, périscolaire et extrascolaire</h3>
+<p>Pour une inquiétude liée à la crèche, à l'école, à la cantine, au centre de loisirs ou aux activités sportives et de loisirs.</p>
 <div class="contact"><b>06 17 52 66 21</b><span><em class="where">À Paris.</em> Cellule de signalement des violences dans le périscolaire de la Ville de Paris, dédiée aux violences faites aux enfants sur les temps périscolaires et animée par des professionnel·les de la protection de l'enfance. Par e-mail : <a href="mailto:signalement-violence-periscolaire@paris.fr">signalement-violence-periscolaire@paris.fr</a></span></div>
 <div class="contact"><b>01 87 66 36 42</b><span><em class="where">À Paris.</em> Cellule d'écoute psychologique de l'OSE (Œuvre de Secours aux Enfants), pour les parents dont l'enfant a pu être exposé à des violences à l'école ou au périscolaire. Gratuit et confidentiel, du lundi au vendredi de 9h30 à 17h. En dehors de ces horaires, laissez un message : l'équipe vous rappelle. Elle vous conseille aussi en cas de doute sur la conduite ou les propos de votre enfant, et soutient les familles d'enfants ayant des besoins spécifiques ou des difficultés d'expression.</span></div>
 <div class="contact"><b>01 87 04 21 36</b><span><em class="where">À Paris, antenne Sud.</em> Paris Aide aux Victimes : information sur vos droits, aide dans les démarches et soutien psychologique. Gratuit et confidentiel, sur rendez-vous. Par e-mail : <a href="mailto:contact13@pav75.fr">contact13@pav75.fr</a></span></div>
@@ -284,7 +284,7 @@ const INFO = {
 <li>retours en arrière : pipi au lit, peur de dormir seul·e, refus panique d'aller dans un lieu.</li>
 </ul>
 <p>Ces signes peuvent avoir bien d'autres causes (par exemple l'arrivée d'un bébé dans la famille). Ils ne prouvent rien, mais ils se prennent au sérieux.</p>
-<p>À qui en parler : votre médecin, un·e psychologue ou pédopsychiatre, le centre médico-psychologique (CMP) de votre secteur, le ou la psychologue scolaire.</p>
+<p>À qui en parler : votre médecin, la PMI (gratuite, jusqu'aux 6 ans de l'enfant), un·e psychologue ou pédopsychiatre, le centre médico-psychologique (CMP) de votre secteur, le ou la psychologue scolaire.</p>
 </section>
 
 <section class="sec s3">
@@ -297,7 +297,7 @@ const INFO = {
 <li>Notez ses mots tels quels, sans les interpréter.</li>
 <li>Ne restez pas seul·e : appelez le <strong>119</strong>, gratuit, 24h/24 et 7j/7. Il conseille aussi les parents.</li>
 <li>En cas de danger immédiat : le <strong>17</strong> ou le <strong>112</strong>.</li>
-<li>Pour les autres numéros d'aide, dont ceux du périscolaire : <button type="button" class="inlinelink" data-info="contacts">voir « Contacts utiles »</button>.</li>
+<li>Pour les autres numéros d'aide, dont ceux de la crèche, de l'école et du périscolaire : <button type="button" class="inlinelink" data-info="contacts">voir « Contacts utiles »</button>.</li>
 </ul>
 <h4>Ce qu'il faut éviter</h4>
 <ul>
