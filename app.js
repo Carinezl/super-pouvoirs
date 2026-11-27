@@ -434,7 +434,7 @@
   // geste : elle démarre donc au premier clic ou au premier appui sur la page (ouvrir la maison, par exemple).
   let ac = null, musicBuf = null, musicNode = null, musicGain = null, musicBusy = false;
   let musicOn = save.music !== false;
-  function showMusic() { $("musicBtn").setAttribute("aria-pressed", musicOn); $("musicLabel").textContent = musicOn ? "oui" : "non"; }
+  function showMusic() { $("musicBtn").setAttribute("aria-pressed", musicOn); $("musicBtn").setAttribute("aria-label", musicOn ? "Musique activée" : "Musique coupée"); }
   async function startMusic() {
     if (musicNode || musicBusy) return;
     const AC = window.AudioContext || window.webkitAudioContext;
