@@ -332,6 +332,14 @@ const RECALL = {
 // ---------- Moteurs ----------
 const Jeux = (function () {
   const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; if (tag === "button") e.type = "button"; return e; };
+  // Après une bonne réponse : la suite arrive toute seule au bout de 3 secondes, ou tout de suite avec « Continuer ».
+  const WAIT = 3000;
+  function goOn(ctx, m, fn) {
+    let done = false; const row = el("div", "center go-row"), b = el("button", "cta go", "Continuer");
+    const run = () => { if (done) return; done = true; row.remove(); fn(); };
+    b.onclick = run; row.append(b); m.append(row); ctx.later(run, WAIT);
+    if (row.scrollIntoView) row.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }
   const shuffle = (a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
   const shake = (b) => { b.classList.remove("no"); void b.offsetWidth; b.classList.add("no"); };
   // Cercles de progression. Avec « go », les questions déjà vues (en vert) sont des boutons : on peut y revenir,
@@ -373,7 +381,7 @@ const Jeux = (function () {
       const box = el("div", "opts"); ctx.say(R.q);
       (R.any ? R.opts : mix(R.opts)).forEach((o) => { const b = opt(o); box.append(b); b.onclick = () => {
         if (lock) return;
-        if (R.any || o.ok) { lock = true; b.classList.add("ok"); const fb = o.fb || R.fb || "Bravo !"; ctx.say(fb); ctx.later(() => { if (my !== tok) return; r++; show(); }, ctx.pause(fb)); }
+        if (R.any || o.ok) { lock = true; b.classList.add("ok"); const fb = o.fb || R.fb || "Bravo !"; ctx.say(fb); goOn(ctx, m, () => { if (my !== tok) return; r++; show(); }); }
         else { shake(b); ctx.say(o.fb || "Essaie encore !"); }
       }; });
       m.append(box);
@@ -399,7 +407,7 @@ const Jeux = (function () {
     const box = el("div", "opts"); ctx.say("Tu te souviens ? " + st.q);
     mix(st.opts).forEach((o) => { const b = opt(o); box.append(b); b.onclick = () => {
       if (lock) return;
-      if (o.ok) { lock = true; b.classList.add("ok"); ctx.say(st.fb); ctx.later(end, ctx.pause(st.fb)); }
+      if (o.ok) { lock = true; b.classList.add("ok"); ctx.say(st.fb); skip.hidden = true; goOn(ctx, m, end); }
       else { shake(b); ctx.say("Presque ! Essaie encore."); }
     }; });
     const skip = el("button", "ghost blue", "Passer directement au jeu du jour"); skip.onclick = () => { if (!lock) { lock = true; end(); } };
@@ -416,7 +424,7 @@ const Jeux = (function () {
       const box = el("div", "opts"); ctx.say(R.q);
       R.items.forEach((o) => { const b = opt(o); b.setAttribute("aria-pressed", "false"); box.append(b); b.onclick = () => { if (lock) return; const on = b.classList.toggle("ok"); b.setAttribute("aria-pressed", on); }; });
       const go = el("button", "cta", "C'est choisi !"); const row = el("div", "center"); row.append(go);
-      go.onclick = () => { if (lock) return; lock = true; ctx.say(R.fb); ctx.later(() => { if (my !== tok) return; r++; show(); }, ctx.pause(R.fb)); };
+      go.onclick = () => { if (lock) return; lock = true; ctx.say(R.fb); goOn(ctx, m, () => { if (my !== tok) return; r++; show(); }); };
       m.append(box, row);
     })();
   };
@@ -431,7 +439,7 @@ const Jeux = (function () {
       const box = el("div", "opts bins"); ctx.say(C.q || (c === 0 ? st.q : (st.q2 || "Et pour cette carte ?"))); // consigne complète une seule fois
       st.bins.forEach((bn, k) => { const b = opt(bn); box.append(b); b.onclick = () => {
         if (lock) return;
-        if (k === C.bin) { lock = true; b.classList.add("ok"); const fb = C.fb || "Oui, bravo !"; ctx.say(fb); ctx.later(() => { if (my !== tok) return; c++; show(); }, ctx.pause(fb)); }
+        if (k === C.bin) { lock = true; b.classList.add("ok"); const fb = C.fb || "Oui, bravo !"; ctx.say(fb); goOn(ctx, m, () => { if (my !== tok) return; c++; show(); }); }
         else { shake(b); ctx.say("Regarde bien, essaie encore !"); }
       }; });
       m.append(box);
@@ -445,7 +453,7 @@ const Jeux = (function () {
     const box = el("div", "opts");
     items.forEach((it) => { const b = el("button", "opt", `<span class="rank"></span><span class="pic" aria-hidden="true">${it.i}</span><span>${it.l}</span>`); box.append(b); b.onclick = () => {
       if (b.classList.contains("ok")) return;
-      if (it.k === pos) { pos++; b.classList.add("ok"); b.querySelector(".rank").textContent = pos; ctx.say(it.l); if (pos === items.length) ctx.later(next, ctx.pause(it.l) + 500); }
+      if (it.k === pos) { pos++; b.classList.add("ok"); b.querySelector(".rank").textContent = pos; ctx.say(it.l); if (pos === items.length) goOn(ctx, m, next); }
       else { shake(b); ctx.say("Pas tout de suite ! Qu'est-ce qu'on fait avant ? Essaie encore."); }
     }; });
     m.append(box);
@@ -460,7 +468,7 @@ const Jeux = (function () {
       b.classList.add("up"); b.setAttribute("aria-label", "Carte : " + c.l); open.push({ b, c });
       if (open.length < 2) return;
       const [a, z] = open; open = [];
-      if (a.c.k === z.c.k) { a.b.classList.add("ok"); z.b.classList.add("ok"); found++; ctx.say(a.c.l + " !"); if (found === st.pairs.length) ctx.later(next, 1800); }
+      if (a.c.k === z.c.k) { a.b.classList.add("ok"); z.b.classList.add("ok"); found++; ctx.say(a.c.l + " !"); if (found === st.pairs.length) goOn(ctx, m, next); }
       else { lock = true; ctx.later(() => { [a.b, z.b].forEach((x) => { x.classList.remove("up"); x.setAttribute("aria-label", "Carte retournée, à découvrir"); }); lock = false; }, 1100); }
     }; });
     m.append(box);
@@ -471,7 +479,7 @@ const Jeux = (function () {
     const box = el("div", "opts");
     st.items.forEach((it, k) => { const b = el("button", "opt", `<span class="pic" aria-hidden="true">${it.i}</span><span class="reveal"></span>`); b.setAttribute("aria-label", "Image " + (k + 1) + ", à découvrir"); box.append(b); b.onclick = () => {
       ctx.say(it.say); b.querySelector(".reveal").textContent = it.say; b.setAttribute("aria-label", it.say);
-      if (!b.classList.contains("ok")) { b.classList.add("ok"); left--; if (!left) ctx.later(next, ctx.pause(it.say) + 600); }
+      if (!b.classList.contains("ok")) { b.classList.add("ok"); left--; if (!left) goOn(ctx, m, next); }
     }; });
     m.append(box);
   };
@@ -485,7 +493,7 @@ const Jeux = (function () {
     m.append(prog, scene, hint);
     const hit = (g) => {
       const P = st.prompts[p]; if (!g || !P || g.classList.contains("found")) return;
-      if (g.dataset.id === P.id) { g.classList.add("found"); ctx.say(P.fb); p++; ctx.later(ask, ctx.pause(P.fb)); }
+      if (g.dataset.id === P.id) { g.classList.add("found"); ctx.say(P.fb); p++; goOn(ctx, m, ask); }
       else { shake(g); ctx.say("Ce n'est pas ça, cherche encore !"); }
     };
     scene.addEventListener("click", (e) => hit(e.target.closest("[data-id]")));
@@ -512,7 +520,7 @@ const Jeux = (function () {
     fig.querySelector("svg").setAttribute("role", "group");
     const pick = (e) => {
       const g = e.target.closest("[data-zone]"), P = st.prompts[p]; if (!g || !P) return;
-      if (g.dataset.zone === P.zone) { g.classList.add("hit"); ctx.say(P.fb); p++; ctx.later(() => { g.classList.remove("hit"); ask(); }, ctx.pause(P.fb)); }
+      if (g.dataset.zone === P.zone) { g.classList.add("hit"); ctx.say(P.fb); p++; goOn(ctx, m, () => { g.classList.remove("hit"); ask(); }); }
       else { shake(fig); ctx.say("Presque ! Essaie encore."); const bub = document.getElementById("sayText"); if (bub && bub.scrollIntoView) bub.scrollIntoView({ block: "nearest", behavior: "smooth" }); } // sur téléphone, la bulle peut être hors de l'écran
     };
     fig.querySelector("svg").addEventListener("click", pick);
@@ -550,7 +558,7 @@ const Jeux = (function () {
         ctx.later(() => (n < total ? tick(label, n + 1, total, then) : then()), 1000);
       };
       (function cycle() {
-        if (c >= st.cycles) { count.remove(); stage.className = "flower-stage in"; ctx.say("Bravo ! Te voilà calme comme la neige qui tombe."); return ctx.later(next, 3600); }
+        if (c >= st.cycles) { count.remove(); stage.className = "flower-stage in"; ctx.say("Bravo ! Te voilà calme comme la neige qui tombe."); return goOn(ctx, m, next); }
         stage.className = "flower-stage in"; ctx.say("Sens la fleur, tout doucement, par le nez.");
         tick("Je sens", 1, 4, () => {
           stage.className = "flower-stage out"; ctx.say("Souffle sur les pétales, longtemps, pour les faire s'envoler.");

@@ -662,3 +662,6 @@ footer{max-width:820px;gap:12px}
 #musicBtn[aria-pressed=false] .ic-on{display:none}
 #musicBtn[aria-pressed=false] .ic-off{display:block}
 #musicBtn[aria-pressed=false]{background:#d5d9ea;color:#5a6399}
+/* Bouton « Continuer » après une bonne réponse */
+.go-row{margin-top:12px}
+.cta.go{min-height:46px;padding:0 26px;font-size:16px}
