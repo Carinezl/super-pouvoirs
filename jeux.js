@@ -105,12 +105,12 @@ const GAMES = {
       { q: "L'adulte t'a expliqué. Mais tu préfères mettre la crème toi-même. Est-ce que tu peux le dire ?", fb: "Oui ! Tu peux dire : « Je préfère le faire moi-même. »", opts: [
         { i: "🙋", l: "Oui, je peux le dire", ok: true }, { i: "🙊", l: "Non, je dois me taire", fb: "Tu as le droit de dire ce que tu préfères. Choisis l'autre réponse." }] },
       { q: "Chez le docteur. Le docteur doit regarder là où tu as mal. Qu'est-ce qui t'aide à te sentir bien ?", fb: "Oui ! Un adulte de confiance est à côté de toi, et le docteur explique ce qu'il fait.", opts: [
-        { i: "🩺", l: "On m'explique, et un adulte de confiance est à côté", ok: true }, { i: "😟", l: "Personne n'est avec moi et on ne me dit rien", fb: "Ça, ça met un nuage. Et l'autre réponse, qu'en penses-tu ?" }] },
-      { q: "Pendant un soin, tu sens un nuage : ça te gêne. Que peux-tu faire ?", fb: "Tu peux dire : « Stop, ça me gêne, explique-moi. » Même à quelqu'un que tu aimes, même au docteur.", opts: [
+        { i: "🩺", l: "On m'explique, et un adulte de confiance est à côté", ok: true }, { i: "😟", l: "Personne n'est avec moi et on ne me dit rien", fb: "Ça, ça peut gêner ou faire peur. Et l'autre réponse, qu'en penses-tu ?" }] },
+      { q: "Pendant un soin, quelque chose te gêne : tu n'aimes pas ça, ou ça te fait un peu peur. Que peux-tu faire ?", fb: "Tu peux dire : « Stop, ça me gêne, explique-moi. » Même à quelqu'un que tu aimes, même au docteur.", opts: [
         { i: "✋", l: "Dire : stop, ça me gêne", ok: true }, { i: "🤐", l: "Ne rien dire", fb: "Ce que tu ressens est important. Essaie encore !" }] },
       { q: "Quelqu'un veut t'aider à te laver. Mais tu sais le faire, et tu n'as pas envie. Que peux-tu dire ?", fb: "Non merci, je sais le faire !", opts: [
         { i: "💪", l: "Non merci, je le fais moi-même", ok: true }, { i: "😣", l: "Je laisse faire, même si je n'ai pas envie", fb: "Tu as le droit de dire non merci. Regarde l'autre réponse." }] },
-      { q: "Alors, est-ce qu'on est toujours obligé d'être d'accord pour un soin ?", fb: "Non ! On doit t'expliquer et t'écouter. Et si tu sens un nuage, tu en parles.", opts: [
+      { q: "Alors, est-ce qu'on est toujours obligé d'être d'accord pour un soin ?", fb: "Non ! On doit t'expliquer et t'écouter. Et si quelque chose te gêne ou te fait peur, tu en parles.", opts: [
         { i: "🤔", l: "Non : on m'explique, on m'écoute, et je peux dire si ça me gêne", ok: true }, { i: "👍", l: "Oui, toujours", fb: "Pas toujours. Écoute bien ce que tu ressens. Choisis l'autre réponse." }] }] }],
 
   7: [{ type: "doit", btn: "J'ai compris !", steps: [
