@@ -6,7 +6,7 @@ const STEP0 = { t: "Je choisis mon personnage", p: "En route pour l'aventure" };
 
 const DAYS = [
   { t: "Pointe et nomme", p: "Je connais mon corps",
-    o: "Connaître et nommer les grandes parties de son corps.", age: "À 3 ans, nommez la partie avant de la faire toucher. À 5-6 ans, ajoutez le cou, les coudes, les genoux et les chevilles.", jour: "Au bain ou à l'habillage, nommez ensemble les parties du corps.", compris: "Votre enfant montre et nomme les grandes parties de son corps.", parler: ["Après le jeu, jouez à « Jacques a dit » avec les parties de son vrai corps.", "« À quoi servent tes mains ? tes pieds ? ton ventre ? »"],
+    o: "Connaître et nommer les grandes parties de son corps.", age: "À 3 ans, nommez la partie avant de la faire toucher. À 5-6 ans, ajoutez le cou, les coudes, les genoux et les chevilles.", jour: "Au bain ou à l'habillage, nommez ensemble les parties du corps.", compris: "Votre enfant montre et nomme les grandes parties de son corps.", parler: ["Après le jeu, jouez à « Jacques a dit » avec les parties de son propre corps.", "« À quoi servent tes mains ? Tes pieds ? Ton ventre ? »"],
     plus: "« Ton corps t'appartient ! », Lucia Serrano (CrackBoom!, dès 3 ans)." },
   { t: "Les mots du docteur", p: "Je dis les mots exacts",
     o: "Connaître les mots exacts des parties intimes, pour pouvoir en parler clairement à un adulte.", age: "À 3 ans, un ou deux mots suffisent : « fesses », puis « vulve » ou « pénis ». Les autres viendront plus tard.", jour: "Employez ces mots au quotidien, à la toilette ou chez le médecin, sur le même ton que « genou » ou « coude ».", compris: "Votre enfant emploie ces mots sans gêne et sait que ces parties sont intimes.", parler: ["Un enfant qui a les mots peut dire clairement ce qui se passe et être compris.", "Si c'est difficile pour vous, dites au moins « parties intimes ». Le jeu nomme les fesses, la poitrine, la vulve, le pénis et les testicules."],
@@ -15,11 +15,11 @@ const DAYS = [
     o: "Prendre soin de son corps et apprendre à se laver sans aide.", age: "À 3 ans, faites le jeu ensemble en racontant le bain : « D'abord on enlève les habits, et ensuite ? » À 5-6 ans, laissez votre enfant chercher.", jour: "Au prochain bain, proposez-lui de se laver sans aide, en restant à côté.", compris: "Votre enfant se lave de plus en plus sans aide, parties intimes comprises.", parler: ["« Ce soir, c'est toi qui commandes le bain : tu me montres comment tu te laves ? »", "Laissez votre enfant laver ses parties intimes sans aide dès que c'est possible."],
     plus: "Livret Bayard « Mon corps est un trésor » (3-6 ans, gratuit)." },
   { t: "Toc toc !", p: "Je protège mon intimité",
-    o: "Comprendre ce qu'est l'intimité : frapper avant d'entrer, et savoir où et quand on peut se déshabiller.", age: "La carte « Ça dépend » est difficile avant 4-5 ans : donnez un exemple concret (« dans ta chambre, si la porte est fermée... »).", jour: "Frappez vous-même avant d'entrer dans sa chambre ou dans la salle de bain.", compris: "Votre enfant frappe avant d'entrer, ou demande à être tranquille.", parler: ["Instaurez ensemble la règle « on frappe avant d'entrer », valable aussi pour les adultes.", "« Où est-ce que tu aimes être tranquille ? »"] },
+    o: "Comprendre ce qu'est l'intimité : frapper avant d'entrer, et savoir où et quand on peut se déshabiller.", age: "La réponse « Ça dépend » est difficile avant 4-5 ans : donnez un exemple concret (« dans ta chambre, si la porte est fermée... »).", jour: "Frappez vous-même avant d'entrer dans sa chambre ou dans la salle de bain.", compris: "Votre enfant frappe avant d'entrer, ou demande à être tranquille.", parler: ["Instaurez ensemble la règle « on frappe avant d'entrer », valable aussi pour les adultes.", "« Où est-ce que tu aimes être tranquille ? »"] },
   { t: "Tous différents, tous super", p: "Super-respect",
-    o: "Accepter son corps tel qu'il est et respecter celui des autres, sans moquerie.", jour: "Regardez ensemble un album ou des photos : en quoi les personnes sont-elles différentes ?", compris: "Votre enfant remarque les différences entre les personnes sans s'en moquer, et sait que chacun·e peut choisir les jeux et les couleurs qui lui plaisent.", parler: ["« Qu'est-ce que ton corps sait bien faire ? »", "Comparez vos mains : taille, forme, couleur."],
+    o: "Accepter son corps tel qu'il est et respecter celui des autres, sans moquerie.", jour: "Regardez ensemble un album ou des photos : en quoi les personnes sont-elles différentes ?", compris: "Votre enfant remarque les différences entre les personnes sans s'en moquer, et sait que les jouets et les couleurs ne sont réservés ni aux filles ni aux garçons.", parler: ["« Qu'est-ce que ton corps sait bien faire ? »", "Comparez vos mains : taille, forme, couleur."],
     plus: "« On est tous différents ! », Mai Lan Chapiron (La Martinière)." },
-  { t: "Qui peut m'aider ?", p: "Je sais qui m'aide",
+  { t: "Un soin, ça s'explique", p: "Je demande qu'on m'explique",
     o: "Savoir qu'un soin s'explique et se demande, et oser dire quand il gêne.", age: "Six étapes, c'est long à 3 ans : faites-en trois, et gardez la suite pour le lendemain.", jour: "Au prochain soin (crème, pansement, mouchage), dites ce que vous allez faire et demandez son accord.", compris: "Votre enfant ose dire « je préfère le faire moi-même » ou « ça me gêne ».",
     parler: ["Avant un soin, dites ce que vous allez faire et pourquoi, puis demandez : « Tu es d'accord ? Tu préfères le faire toi-même ? »", "Si un soin est indispensable et que votre enfant refuse, expliquez et proposez un choix (maintenant ou dans cinq minutes, toi ou moi) plutôt que de forcer.", "Dites-lui qu'il/elle peut toujours dire « stop, ça me gêne », même à vous, même au docteur."],
     eviter: "Présenter un geste comme toujours acceptable ou toujours interdit : le même geste peut être un soin, ou ne pas en être un. Restez attentif si un adulte insiste pour s'occuper seul du bain ou du coucher." },
@@ -28,13 +28,13 @@ const DAYS = [
   { t: "Bonjour à ma façon", p: "Je choisis",
     o: "Savoir qu'on peut choisir comment dire bonjour, et qu'un bisou ou un câlin ne sont jamais obligatoires.", jour: "Avant une visite ou une fête, demandez-lui comment il/elle veut dire bonjour aujourd'hui, et prévenez les adultes si besoin.", compris: "Votre enfant choisit sa façon de dire bonjour sans culpabiliser.", parler: ["Proposez les « bisous qui volent » à la place d'un bisou ou d'un câlin."],
     eviter: "« Fais-lui un bisou, sinon il va être triste. » On ne force jamais un bisou ni un câlin, et on ne demande pas à un enfant d'en faire un pour faire plaisir à un adulte.", plus: "« Je peux te faire un bisou ? », S. Bourdeverre-Veyssière et C. Fruy (dès 3 ans)." },
-  { t: "Les mêmes règles pour tout le monde", p: "Mes règles pour tout le monde",
+  { t: "Les mêmes règles pour tout le monde", p: "La même règle pour tout le monde",
     o: "Savoir que les mêmes règles valent pour tout le monde, proches compris : on demande mon accord avant de me toucher, et personne ne peut m'obliger à toucher quelqu'un.", age: "À 3 ans, faites seulement les deux premières cartes, puis dites la règle ensemble.", jour: "Avant un câlin, un bisou ou des chatouilles, demandez : « Tu veux bien ? », et accueillez un non avec le sourire.", compris: "Votre enfant sait que la règle est la même pour tout le monde, et ose dire non à un proche.",
     parler: ["Le jeu ne classe pas les personnes en « sûres » et « pas sûres » : la plupart des violences sont commises par des proches. Il répète une seule idée, les règles sont les mêmes pour tout le monde.", "Dites-le avec vos mots : « Même moi, je te demande. Et tu as le droit de me dire non. »"],
     eviter: "Laisser entendre que le danger vient surtout des inconnus, ou qu'on ne dit pas non aux personnes qu'on aime.",
     plus: "Éducation nationale, vademecum « Violences sexuelles intrafamiliales » : personne n'a le droit de toucher le corps d'un enfant sans son accord, que ce soit un membre de sa famille ou non." },
   { t: "Tu es d'accord ?", p: "Super-politesse",
-    o: "Demander avant de toucher quelqu'un, et repérer sur son visage et son corps s'il est d'accord.", jour: "Montrez l'exemple dans les petites choses : « Tu me prêtes ton crayon ? », « Je peux m'asseoir à côté de toi ? »", compris: "Votre enfant demande avant de prendre, de toucher ou de s'installer, et regarde la réaction de l'autre.", parler: ["Entraînez-vous avec une peluche, puis entre vous.", "Vous aussi, demandez : « Je peux te faire un câlin ? »"],
+    o: "Demander avant de toucher quelqu'un, et repérer son accord sur son visage et dans sa posture.", jour: "Montrez l'exemple dans les petites choses : « Tu me prêtes ton crayon ? », « Je peux m'asseoir à côté de toi ? »", compris: "Votre enfant demande avant de prendre, de toucher ou de s'installer, et regarde la réaction de l'autre.", parler: ["Entraînez-vous avec une peluche, puis entre vous.", "Vous aussi, demandez : « Je peux te faire un câlin ? »"],
     plus: "Saprea, « Enseigner le consentement à votre enfant »." },
   { t: "J'ai le droit de changer d'avis", p: "Je peux changer d'avis",
     o: "Savoir qu'on peut changer d'avis à tout moment, et respecter le « stop » des autres.", jour: "Quand votre enfant dit « stop » pendant un jeu, arrêtez aussitôt et dites-le : « Tu as dit stop, j'arrête. »", compris: "Votre enfant dit stop sans crainte, et s'arrête quand un autre le dit.", parler: ["Rappelez-lui que cela marche dans les deux sens : quand un·e ami·e dit stop, on s'arrête aussi."] },
@@ -50,7 +50,7 @@ const DAYS = [
     eviter: "Classer les gestes en « bons » et « mauvais » une fois pour toutes.",
     plus: "Podcast « Ton corps c'est toi », épisode 3 (Comitys), à écouter d'abord sans l'enfant." },
   { t: "Mon alarme « Oh oh ! »", p: "Alarme activée",
-    o: "Connaître les quatre règles qui protègent les parties intimes, et écouter son signal d'alarme intérieur.", age: "À 3 ans, retenez surtout : « Ce qui est sous la culotte ou le slip est à toi. Si ça fait oh oh, tu viens me le dire. »", jour: "Rappelez la règle sans dramatiser, au bain ou à l'habillage.", compris: "Votre enfant sait que la règle vaut pour tout le monde, même pour un jeu, et qu'on peut toujours vous en parler.", parler: ["Expliquez-lui : « Parfois, c'est difficile de savoir si on te respecte. Si tu te sens mal ou que quelque chose te paraît bizarre, c'est un signal. »", "Entre enfants du même âge, les jeux de découverte du corps sont fréquents. Rappelez la règle calmement, sans gronder ni faire honte."],
+    o: "Connaître les quatre règles qui protègent les parties intimes, et écouter son signal d'alarme intérieur.", age: "À 3 ans, dites surtout : « Ce qui est sous la culotte ou le slip est à toi. Si ça fait oh oh, tu viens me le dire. »", jour: "Rappelez la règle sans dramatiser, au bain ou à l'habillage.", compris: "Votre enfant sait que la règle vaut pour tout le monde, même pour un jeu, et qu'on peut toujours vous en parler.", parler: ["Expliquez-lui : « Parfois, c'est difficile de savoir si on te respecte. Si tu te sens mal ou que quelque chose te paraît bizarre, c'est un signal. »", "Entre enfants du même âge, les jeux de découverte du corps sont fréquents. Rappelez la règle calmement, sans gronder ni faire honte."],
     eviter: "Limiter le message à « ne laisse personne te toucher », ou se concentrer sur l'inconnu au parc.", plus: "« Kiko et la main » (Conseil de l'Europe, gratuit). Vidéo « Le Loup » de Mai Lan Chapiron, à regarder d'abord sans l'enfant." },
   { t: "Cherche et trouve", p: "Œil de lynx",
     o: "S'exercer à observer les autres : leurs émotions, leurs gestes, leur envie d'être tranquilles.", age: "À 3 ans, cherchez ensemble en pointant du doigt et en décrivant ce que vous voyez.", jour: "Dans un livre ou dans la rue, cherchez ensemble comment se sentent les personnages.", compris: "Votre enfant repère une émotion ou un refus sur un visage ou dans une posture.", parler: ["« Comment sais-tu que ce personnage n'a pas envie ? Qu'est-ce qu'on pourrait faire pour l'aider ? »"] },
@@ -64,8 +64,8 @@ const DAYS = [
   { t: "Ma main de confiance", p: "Main de confiance",
     o: "Identifier cinq adultes de confiance à qui parler en cas de souci.", age: "À 3 ans, deux ou trois adultes suffisent.", jour: "Tracez sa main sur une feuille, écrivez un prénom par doigt et affichez-la.", compris: "Votre enfant nomme au moins deux adultes à qui parler, dont un en dehors de la maison.", parler: ["Pendant le jeu, votre enfant dit les prénoms à voix haute. Cherchez ensemble cinq adultes de son entourage, dont au moins un en dehors de la maison.", "Prévenez ces adultes qu'ils ont été choisis."] },
   { t: "Le chemin vers mon équipe", p: "Je persévère",
-    o: "Savoir insister : si un adulte n'écoute pas, on en parle à un autre, jusqu'à être entendu·e.", jour: "Dites-le clairement : « Si un jour je ne t'écoute pas bien, insiste, ou va le dire à... »", compris: "Votre enfant sait qu'il faut continuer à en parler jusqu'à être écouté.", parler: ["« Si je ne t'écoute pas, à qui d'autre peux-tu le dire ? »", "Reprenez ensemble les prénoms de sa main de confiance (jour 21)."],
-    eviter: "Les « pourquoi » en série, les questions qui orientent, le faire répéter. Gronder ou punir un enfant qui a parlé : un enfant ne doit jamais regretter de s'être confié." },
+    o: "Savoir insister : si un adulte n'écoute pas, on en parle à un autre, jusqu'à être entendu·e.", jour: "Dites-le clairement : « Si un jour je ne t'écoute pas bien, insiste, ou va le dire à un autre adulte de ta main. »", compris: "Votre enfant sait qu'il faut continuer à en parler jusqu'à être écouté·e.", parler: ["« Si je ne t'écoute pas, à qui d'autre peux-tu le dire ? »", "Reprenez ensemble les prénoms de sa main de confiance (jour 21)."],
+    eviter: "Les « pourquoi » en série, les questions qui orientent, lui demander de répéter. Gronder ou punir un enfant qui a parlé : un enfant ne doit jamais regretter de s'être confié." },
   { t: "Mes super-droits", p: "Super-révision",
     o: "Réviser l'essentiel, et retenir qu'un enfant a le droit d'être protégé et n'est jamais fautif.", age: "Huit questions : à 3 ans, faites le quiz en deux fois.", jour: "Demandez-lui ce que le calendrier lui a appris de plus important.", compris: "Votre enfant retrouve plusieurs messages : mon corps est à moi, j'ai le droit de dire non, j'en parle.", parler: ["La Convention internationale des droits de l'enfant protège chaque enfant contre toutes les violences.", "On peut aussi appeler le 119 quand on est témoin."],
     plus: "« Interdit de me faire MAL », Mai Lan Chapiron. Coloriages gratuits « Ta voix compte ! » de Mille Miettes." },
@@ -195,7 +195,7 @@ const INFO = {
 <h3>Crédits</h3>
 <p>Musique : <em>Wintery loop</em>, Emma_MA (opengameart.org), domaine public (CC0).</p>
 <p>Polices de caractères : Bricolage Grotesque, Bagel Fat One et Nunito, polices libres (licence SIL Open Font License).</p>
-<h3>Nous écrire</h3>
+<h3>Écrire à l'autrice</h3>
 <p>Une question, une remarque, une erreur à signaler ? Écrivez à <a href="mailto:calendriersuperpouvoirs@gmail.com">calendriersuperpouvoirs@gmail.com</a>.</p>
 <p class="note">En cas d'inquiétude pour un enfant, n'écrivez pas à cette adresse : appelez le <strong>119</strong>, gratuit, 24h/24.</p>`
   },
@@ -203,7 +203,7 @@ const INFO = {
     title: "Mentions légales",
     html: `
 <h3>Éditrice du site</h3>
-<p>Ce site est édité à titre personnel par Carine Sit, particulier.</p>
+<p>Ce site est édité à titre personnel par Carine Sit.</p>
 <p>Contact : <a href="mailto:calendriersuperpouvoirs@gmail.com">calendriersuperpouvoirs@gmail.com</a></p>
 <h3>Hébergement</h3>
 <p>Ce site est hébergé par GitHub Pages, un service de GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis. Contact : <a href="https://support.github.com/" target="_blank" rel="noopener">support.github.com</a>.</p>
@@ -243,7 +243,7 @@ const INFO = {
 <li>Installer des <strong>réflexes simples</strong> : demander avant de toucher, dire non, s'éloigner, en parler à un adulte de confiance.</li>
 <li>Créer entre vous une <strong>habitude de dialogue</strong> sur ces sujets.</li>
 </ul>
-<p class="key">Le calendrier donne des mots à votre enfant. La protection, elle, reste le rôle des adultes : ce n'est jamais à l'enfant de se protéger seul.</p>
+<p class="key">Le calendrier donne des mots à votre enfant. La protection, elle, reste le rôle des adultes : ce n'est jamais à l'enfant de se protéger seul·e.</p>
 <h4>Comment l'utiliser</h4>
 <ul>
 <li>Du 1<sup>er</sup> au 24 décembre, chaque jour ouvre un petit jeu à faire en famille et une fiche de conseils pour les parents.</li>
@@ -270,8 +270,8 @@ const INFO = {
 <h3><span class="n">2</span>Quelques repères entre 3 et 6 ans</h3>
 <p>Découvrir son corps et celui des autres fait partie du développement. Des signes peuvent vous indiquer si le rapport de votre enfant à son corps relève d'une phase de découverte, ou s'il doit susciter une vigilance, voire une inquiétude.</p>
 <div class="levels">
-<div class="lv ok"><strong>Comportement de découverte</strong>Poser des questions, jouer au docteur, aimer être nu, explorer son propre corps.</div>
-<div class="lv mid"><strong>Comportement préoccupant</strong>Reposer sans cesse les mêmes questions, se montrer nu en public, observer les autres avec insistance, malgré vos explications.</div>
+<div class="lv ok"><strong>Comportement de découverte</strong>Poser des questions, jouer au docteur, aimer être nu·e, explorer son propre corps.</div>
+<div class="lv mid"><strong>Comportement préoccupant</strong>Reposer sans cesse les mêmes questions, se montrer nu·e en public, observer les autres avec insistance, malgré vos explications.</div>
 <div class="lv hi"><strong>Comportement nécessitant une aide professionnelle</strong>Forcer d'autres enfants, en savoir beaucoup trop pour son âge, se blesser, agir en cachette puis nier.</div>
 </div>
 <h4>D'autres signes qui peuvent alerter</h4>
@@ -280,8 +280,8 @@ const INFO = {
 <li>humeur : tristesse, colère ou repli inhabituels ;</li>
 <li>sommeil et appétit : cauchemars, difficultés à s'endormir, refus de manger ;</li>
 <li>plaintes répétées : maux de ventre, maux de tête ;</li>
-<li>rapport au corps : refus de se déshabiller, de se laver ou d'être touché ;</li>
-<li>retours en arrière : pipi au lit, peur de dormir seul, refus panique d'aller dans un lieu.</li>
+<li>rapport au corps : refus de se déshabiller, de se laver ou d'être touché·e ;</li>
+<li>retours en arrière : pipi au lit, peur de dormir seul·e, refus panique d'aller dans un lieu.</li>
 </ul>
 <p>Ces signes peuvent avoir bien d'autres causes (par exemple l'arrivée d'un bébé dans la famille). Ils ne prouvent rien, mais ils se prennent au sérieux.</p>
 <p>À qui en parler : votre médecin, un·e psychologue ou pédopsychiatre, le centre médico-psychologique (CMP) de votre secteur, le ou la psychologue scolaire.</p>

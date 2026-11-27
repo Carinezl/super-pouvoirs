@@ -92,8 +92,8 @@ const GAMES = {
         { i: "🌈", l: "Non, tous différents", ok: true }, { i: "👯", l: "Oui, tous pareils", fb: "Regarde bien, ils sont tous différents ! Regarde l'autre réponse." }] },
       { q: "Et toi, ton corps ressemble-t-il exactement à celui d'un autre enfant ?", fb: "Non ! Ton corps est unique, lui aussi.", opts: [
         { i: "⭐", l: "Non, mon corps est unique", ok: true }, { i: "👯", l: "Oui, exactement pareil", fb: "Regarde tes mains, tes yeux, tes cheveux : tu es unique ! Choisis l'autre réponse." }] },
-      { q: "Les jeux et les couleurs, c'est pour qui ?", fb: "Pour tout le monde ! Chacun et chacune choisit ce qu'il/elle aime.", opts: [
-        { i: "🌈", l: "Pour tout le monde", ok: true }, { i: "🚧", l: "Certains pour les filles, d'autres pour les garçons", fb: "Les jeux et les couleurs sont à tout le monde. Et l'autre réponse, qu'en penses-tu ?" }] },
+      { q: "Y a-t-il des jouets ou des couleurs réservés aux filles, ou aux garçons ?", fb: "Non ! Les poupées, les ballons, le rose, le bleu : chacun et chacune choisit ce qu'il/elle aime.", opts: [
+        { i: "🌈", l: "Non, chacun·e choisit ce qui lui plaît", ok: true }, { i: "🚧", l: "Oui, certains pour les filles, d'autres pour les garçons", fb: "Les jouets et les couleurs sont pour tout le monde. Et l'autre réponse, qu'en penses-tu ?" }] },
       { q: "Est-ce qu'on se moque du corps de quelqu'un ?", fb: "Jamais ! Bravo.", opts: [
         { i: "🙅", l: "Non, jamais", ok: true }, { i: "😜", l: "Oui, c'est rigolo", fb: "Ça fait de la peine. Essaie encore !" }] }] }],
 
@@ -184,7 +184,7 @@ const GAMES = {
       { i: "✋", l: "Main levée", say: "Lève ta main devant toi, comme un bouclier." },
       { i: "📣", l: "« Arrête ! J'aime pas ça ! »", say: "Maintenant, dis avec ta grosse voix :" },
       { i: "🦁", l: "« Non ! Je veux pas ! »", say: "Encore plus fort, comme un lion :" }] }],
-  13: [{ type: "memory", q: "Retourne les cartes et retrouve les deux enfants qui ressentent la même chose.", pairs: [
+  13: [{ type: "memory", q: "Retourne les cartes et retrouve les deux visages qui ressentent la même chose.", pairs: [
       { i: "😀", l: "La joie" }, { i: "😠", l: "La colère" }, { i: "😨", l: "La peur" }, { i: "😢", l: "La tristesse" }] },
     { type: "quiz", rounds: [{ q: "Qui a le droit de pleurer, d'avoir peur ou d'être en colère ?", fb: "Tout le monde ! Les filles, les garçons, et les grandes personnes aussi.", opts: [
       { i: "🌈", l: "Tout le monde", ok: true }, { i: "👶", l: "Seulement les bébés", fb: "Les grands aussi ont des émotions ! Et l'autre réponse, qu'en penses-tu ?" }] }] }],
@@ -313,7 +313,7 @@ const RECALL = {
   10: { q: "Même avec quelqu'un que tu connais très bien, peux-tu dire non à un câlin ?", fb: "Oui, toujours.", opts: [{ i: "👍", l: "Oui", ok: true }, { i: "👎", l: "Non" }] },
   11: { q: "Avant de faire un câlin à ton ami·e, que fais-tu ?", fb: "Oui ! Tu demandes d'abord.", opts: [{ i: "🤗", l: "Je fonce" }, { i: "🙋", l: "Je demande", ok: true }] },
   12: { q: "As-tu le droit de changer d'avis ?", fb: "Oui ! Oui tout à l'heure, non maintenant, c'est permis.", opts: [{ i: "👍", l: "Oui", ok: true }, { i: "👎", l: "Non" }] },
-  13: { q: "Pour dire non, comment te tiens-tu ?", fb: "Oui ! Bien droit, et avec ta grosse voix.", opts: [{ i: "🐌", l: "En boule, comme un escargot" }, { i: "🧍", l: "Bien droit, comme un arbre", ok: true }] },
+  13: { q: "Pour dire non, comment te tiens-tu ?", fb: "Oui ! Bien droit·e, et avec ta grosse voix.", opts: [{ i: "🐌", l: "En boule, comme un escargot" }, { i: "🧍", l: "Bien droit·e, comme un arbre", ok: true }] },
   14: { q: "Quand tu souris et que tu sautes partout, c'est...", fb: "La joie !", opts: [{ i: "😀", l: "La joie", ok: true }, { i: "😢", l: "La tristesse" }] },
   15: { q: "Qui t'envoie des messages quand tu ressens une émotion ?", fb: "Ton corps ! Écoute-le bien.", opts: [{ i: "👟", l: "Mes chaussures" }, { i: "💓", l: "Mon corps", ok: true }] },
   16: { q: "Un câlin dont tu n'as pas envie, ça met...", fb: "Un nuage. Ton non compte.", opts: [{ i: "☁️", l: "Un nuage", ok: true }, { i: "☀️", l: "Du soleil" }] },
@@ -322,7 +322,7 @@ const RECALL = {
   19: { q: "Pour retrouver ton calme, que peux-tu faire ?", fb: "Oui ! Tu sens, puis tu souffles.", opts: [{ i: "😤", l: "Se rouler par terre et taper du poing" }, { i: "🌸", l: "Sentir la fleur et souffler", ok: true }] },
   20: { q: "Quand quelque chose ne va pas, tu dis non, tu t'en vas, et ensuite ?", fb: "Oui ! Tu en parles à un adulte de confiance.", opts: [{ i: "🗣️", l: "J'en parle", ok: true }, { i: "🙈", l: "Je me cache" }] },
   21: { q: "Un secret qui serre le ventre, qu'en fais-tu ?", fb: "Oui ! Un secret nuage, on le raconte.", opts: [{ i: "🤐", l: "Je le garde" }, { i: "🗣️", l: "Je le raconte", ok: true }] },
-  22: { q: "Combien d'adultes de confiance as-tu sur ta main ?", fb: "Cinq ! Un par doigt.", opts: [{ i: "🖐️", l: "Cinq, un par doigt", ok: true }, { i: "0️⃣", l: "Zéro" }] },
+  22: { q: "À quoi sert ta main de confiance ?", fb: "Oui ! À savoir à qui parler quand quelque chose ne va pas.", opts: [{ i: "🗣️", l: "À savoir à qui parler", ok: true }, { i: "🧤", l: "À mettre des gants" }] },
   23: { q: "Si un adulte ne t'écoute pas, que fais-tu ?", fb: "Oui ! Tu continues jusqu'à ce qu'on t'écoute.", opts: [{ i: "😞", l: "J'abandonne" }, { i: "🚶", l: "J'en parle à un autre", ok: true }] },
   24: { q: "À qui est ton corps ?", fb: "À toi ! C'est ton corps, c'est toi qui décides.", opts: [{ i: "🙋", l: "À moi", ok: true }, { i: "👥", l: "Aux autres" }] },
 };
