@@ -129,7 +129,7 @@
   function setOpen(open) {
     $("cover").hidden = open;
     $("intro").hidden = open; $("closeBtn").hidden = !open;
-    $("settingsBtn").hidden = !open; if (!open) setSettings(false); // l'introduction ne s'affiche que sur la couverture
+    $("settingsBtn").hidden = !open; $("writeBtn").hidden = !open; if (!open) setSettings(false); // l'introduction ne s'affiche que sur la couverture
     $("house").hidden = !open;
     if (open) { $("house").classList.remove("pop-in"); void $("house").offsetWidth; $("house").classList.add("pop-in"); window.scrollTo({ top: 0 }); }
   }
