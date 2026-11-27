@@ -591,3 +591,6 @@ footer{max-width:820px;gap:12px}
 .cover-cta{margin-top:-22px;padding:0 16px 24px;gap:8px}
 @media (max-width:520px){.cover-cta{margin-top:-8px;padding-bottom:20px}}
 #cover{z-index:2}
+/* Introduction : tranche d'âge mise en avant */
+.intro .age{margin-top:12px;font:800 20px var(--title);color:#ff9ad0}
+@media (max-width:520px){.intro .age{font-size:17px;margin-top:10px}}
