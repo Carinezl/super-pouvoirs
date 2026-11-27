@@ -244,7 +244,9 @@ const GAMES = {
   19: [{ type: "order", q: "Quelque chose ne va pas. Que fais-tu ? Touche les images dans le bon ordre.", items: [
       { i: "✋", l: "Je dis non" }, { i: "🏃", l: "Je m'en vais" }, { i: "🗣️", l: "J'en parle à un adulte de confiance" }] },
     { type: "quiz", rounds: [{ q: "Et si tu n'as pas réussi à dire non, ou à partir ?", fb: "Ce n'est jamais ta faute. Te protéger, c'est le travail des adultes. Toi, tu peux les aider en parlant aux adultes en qui tu as confiance.", opts: [
-      { i: "💛", l: "Ce n'est pas ma faute, et j'en parle", ok: true }, { i: "😔", l: "C'est ma faute", fb: "Non, ce n'est jamais la faute de l'enfant. Essaie encore !" }] }] }],
+      { i: "💛", l: "Ce n'est pas ma faute, et j'en parle", ok: true }, { i: "😔", l: "C'est ma faute", fb: "Non, ce n'est jamais la faute de l'enfant. Essaie encore !" }] },
+      { q: "Tu vois qu'un enfant se fait souvent embêter par d'autres. Que fais-tu ?", fb: "Oui ! Tu peux demander de l'aide pour un autre enfant.", opts: [
+        { i: "🗣️", l: "Je le dis à un adulte de confiance", ok: true }, { i: "🤐", l: "Je ne dis rien", fb: "Tu peux aider cet enfant. Regarde l'autre réponse." }] }] }],
 
   20: [{ type: "doit", btn: "J'ai compris !", steps: [
       { i: "☀️", l: "Le secret soleil", say: "Un secret soleil, c'est une surprise. Il rend joyeux, et bientôt tout le monde le saura. Comme un cadeau bien caché !" },
