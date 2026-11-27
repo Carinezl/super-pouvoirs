@@ -250,7 +250,7 @@ const INFO = {
 <li>Les jours passés restent ouverts : une fenêtre manquée se rattrape quand vous voulez.</li>
 <li>Chaque jeu prend 5 à 10 minutes. Jouez ensemble : lisez les consignes à voix haute et votre enfant répond.</li>
 <li>À partir du 2 décembre, chaque jeu démarre par une petite révision de ce qui a été vu la veille. Vous pouvez décider de sauter cette étape et de passer directement à la fiche du jour.</li>
-<li>Chaque fenêtre a un onglet « Fiche adulte » : l'objectif du jour, comment en parler, et des idées pour la journée.</li>
+<li>Chaque fenêtre a un onglet « Fiche adulte » : l'objectif du jour, comment en parler, et des idées pour poursuivre la dynamique au quotidien.</li>
 <li>Si votre enfant n'a pas envie, on reporte.</li>
 <li>Le bouton « Réglages » permet de débloquer toutes les fenêtres en avance (avant le 24 décembre), ou de réinitialiser le jeu (c'est-à-dire effacer les super-pouvoirs gagnés et le personnage choisi).</li>
 </ul>
