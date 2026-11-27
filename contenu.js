@@ -235,7 +235,7 @@ const INFO = {
 
 <section class="sec s1">
 <h3><span class="n">1</span>Le calendrier, mode d'emploi</h3>
-<p>Un outil pédagogique pour sensibiliser les enfants au consentement et au respect de leur corps, sous la forme d'un calendrier de l'avent. Chaque jour, du 1<sup>er</sup> au 24 décembre, ouvre l'accès à un petit jeu à faire en famille et à une fiche de conseils pour les parents.</p>
+<p>Le calendrier des super-pouvoirs est un outil pédagogique conçu pour sensibiliser les enfants au consentement et au respect de leur corps. Il se présente sous la forme d'un calendrier de l'avent qui, chaque jour, propose un moment à partager en famille pour aborder ces sujets de manière simple et ludique.</p>
 <h4>Ses objectifs</h4>
 <ul>
 <li><strong>Sensibiliser</strong> votre enfant à son corps, à son intimité et au respect de celui des autres.</li>
@@ -246,10 +246,12 @@ const INFO = {
 <p class="key">Le calendrier donne des mots à votre enfant. La protection, elle, reste le rôle des adultes : ce n'est jamais à l'enfant de se protéger seul.</p>
 <h4>Comment l'utiliser</h4>
 <ul>
+<li>Du 1<sup>er</sup> au 24 décembre, chaque jour ouvre un petit jeu à faire en famille et une fiche de conseils pour les parents.</li>
 <li>Les jours passés restent ouverts : une fenêtre manquée se rattrape quand vous voulez.</li>
 <li>Jouez ensemble, 5 à 10 minutes : vous lisez les consignes, votre enfant répond.</li>
 <li>Chaque fenêtre a un onglet « Fiche adulte » : l'objectif du jour, comment en parler, et des idées pour la journée.</li>
 <li>Si votre enfant n'a pas envie, on reporte. Le petit rappel de la veille peut être passé.</li>
+<li>Une fois la maison ouverte, le bouton « Réglages », en haut de la page, permet de débloquer toutes les fenêtres pour les parcourir avant votre enfant, ou de réinitialiser le jeu.</li>
 </ul>
 <h4>Quand votre enfant vous pose une question</h4>
 <ul>
@@ -260,8 +262,6 @@ const INFO = {
 </ul>
 <h4>Méthodologie</h4>
 <p>Les jeux et les fiches ont été construits à partir de documents publiés par des professionnel·les et des institutions reconnues. Une relecture par un·e professionnel·le de l'enfance est en cours. Une remarque, une correction à proposer ? Écrivez à <a href="mailto:calendriersuperpouvoirs@gmail.com">calendriersuperpouvoirs@gmail.com</a>. <button type="button" class="inlinelink" data-info="apropos">En savoir plus dans « À propos »</button></p>
-<h4>Découvrir le calendrier à l'avance</h4>
-<p>Une fois la maison ouverte, le bouton « Réglages », en haut de la page, permet de débloquer toutes les fenêtres pour les parcourir avant votre enfant, ou de réinitialiser le jeu.</p>
 </section>
 
 <section class="sec s2">
