@@ -69,6 +69,8 @@
     ["#7fd3ff", "#1d2fa8", "rgba(255,255,255,.7)"], ["#b9a4ff", "#1d2fa8", "rgba(255,255,255,.6)"],
     ["#0e8b75", "#ffffff", "#075a4c"], ["#fff4d6", "#d81e5b", "rgba(255,255,255,.9)"]
   ];
+  // Croisillons très pâles : leur intensité dépend de la couleur de la fenêtre, pour rester discrets partout.
+  const MUL = { "#fff4d6": .6, "#ffd400": .42, "#7fd3ff": .3, "#b9a4ff": .28, "#ff7ac0": .28, "#ff3b2f": .2, "#0e8b75": .18, "#1d2fa8": .16 };
   const SHAPES = ["sq", "arch", "sq", "round", "arch", "sq"];
   const SIZES = [[88, 84], [80, 94], [92, 76]];
   const CHARS = window.PERSOS; // 24 personnages, un par fenêtre
@@ -88,14 +90,14 @@
       const shape = door ? "arch" : SHAPES[(n * 5) % SHAPES.length];
       const open = isOpenDay(n), done = open && save.done.includes(n), isToday = n === jourJ;
       const [w, h] = SIZES[n % SIZES.length];
-      const size = door ? "width:92%;height:112%" : shape === "round" ? "" : shape === "arch" ? "width:78%;height:100%" : `width:${w}%;height:${h}%`;
+      const size = door ? "width:92%;height:calc(112% + 12px);margin-bottom:-12px" : shape === "round" ? "" : shape === "arch" ? "width:78%;height:100%" : `width:${w}%;height:${h}%`;
       const cls = ["win", shape, door ? "door" : "", done ? "done" : "", open ? "" : "locked", isToday ? "today bobber" : ""].join(" ");
       const label = `${door ? "Porte" : "Fenêtre"} ${n}` + (open ? ` : ${DAYS[n - 1].t}` + (done ? ", réussie" : "") : `, s'ouvre le ${n === 1 ? "1er" : n} décembre`);
       const char = done ? `<svg class="peek p${(n % 4) + 1}" viewBox="0 0 120 130" preserveAspectRatio="xMidYMax meet"><use href="#c-${CHARS[n - 1]}"/></svg>` : "";
-      return `<div class="cell"><button type="button" class="${cls}" data-day="${n}" aria-label="${label}" style="--bg:${bg};--num-c:${num};--shade:${shade};${size}">
+      return `<div class="cell"><button type="button" class="${cls}" data-day="${n}" aria-label="${label}" style="--bg:${bg};--num-c:${num};--shade:${shade};--mul:${MUL[bg] || .28};${size}">
         <span class="pane" aria-hidden="true">${char}${door ? WREATH : ""}</span>
         <span class="num">${n}</span><span class="sill" aria-hidden="true"></span>
-        ${done ? CHECK : ""}${isToday ? '<span class="tag">Aujourd\'hui</span>' : ""}</button></div>`;
+        ${done ? CHECK : ""}${door ? '<span class="knob" aria-hidden="true"></span>' : ""}${isToday ? '<span class="tag">Aujourd\'hui</span>' : ""}</button></div>`;
     }).join("");
     $("badges").innerHTML = DAYS.map((d, i) => {
       const on = save.done.includes(i + 1);
