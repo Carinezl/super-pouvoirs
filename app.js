@@ -461,7 +461,7 @@
       if (!musicOn || musicNode) return; // coupée pendant le chargement
       musicGain = ac.createGain();
       musicGain.gain.setValueAtTime(0.0001, ac.currentTime);
-      musicGain.gain.exponentialRampToValueAtTime(0.35, ac.currentTime + 1.2); // entrée en douceur
+      musicGain.gain.exponentialRampToValueAtTime(0.25, ac.currentTime + 1.2); // entrée en douceur
       musicGain.connect(ac.destination);
       musicNode = ac.createBufferSource();
       musicNode.buffer = musicBuf; musicNode.loop = true;
