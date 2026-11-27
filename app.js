@@ -218,7 +218,7 @@
   function openDay(n) {
     current = { day: n === 0 ? STEP0 : DAYS[n - 1], n };
     $("dlgNum").textContent = n; $("dlgNum").hidden = false;
-    $("dlgKicker").textContent = n === 0 ? "Avant de commencer" : ""; $("dlgSub").textContent = (n >= 1 && DAYS[n - 1].e) || ""; $("dlgSub").hidden = false; // sous le titre : l'objectif du jeu, avec des mots d'enfant
+    $("dlgKicker").textContent = n === 0 ? "Avant de commencer" : ""; $("dlgSub").textContent = (n >= 1 && DAYS[n - 1].e) || ""; $("dlgSub").hidden = false; $("dlgSub").className = "obj"; // sous le titre : l'objectif du jeu, avec des mots d'enfant
     $("dlgTitle").textContent = current.day.t;
     $("dlgTabs").hidden = n === 0; // pas de fiche adulte pour le choix du personnage
     dlg.classList.remove("reading");
@@ -229,7 +229,7 @@
     const info = INFO[key];
     current = null; runId++;
     $("dlgNum").hidden = true;
-    $("dlgKicker").textContent = info.kicker || ""; $("dlgSub").textContent = info.sub || ""; $("dlgSub").hidden = false;
+    $("dlgKicker").textContent = info.kicker || ""; $("dlgSub").textContent = info.sub || ""; $("dlgSub").hidden = false; $("dlgSub").className = "";
     $("dlgTitle").textContent = info.title;
     $("dlgTabs").hidden = true;
     $("dlgPanel").innerHTML = info.html;
