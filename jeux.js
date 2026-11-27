@@ -222,7 +222,7 @@ const GAMES = {
         { i: "🛑", l: "Non, la règle reste la même", ok: true }, { i: "🎲", l: "Oui, si c'est un jeu", fb: "Oh oh ! L'alarme sonne. Choisis l'autre réponse." }] },
       { q: "Quelqu'un te demande de toucher ou de regarder ses parties intimes, ou te montre des images de parties intimes. Que dit la règle ?", fb: "C'est non aussi. Tu as le droit de refuser, même si on insiste, même si c'est quelqu'un que tu aimes.", opts: [
         { i: "🛑", l: "C'est non aussi", ok: true }, { i: "🤷", l: "Là, c'est permis", fb: "Oh oh ! L'alarme sonne. Et l'autre réponse, qu'en penses-tu ?" }] },
-      { q: "Les règles d'or, c'est seulement pour les adultes ?", fb: "Personne ne touche tes parties intimes : ni un adulte, ni un enfant, petit ou grand. Si ça arrive, tu parles à un adulte de confiance. Toi non plus, tu ne dois pas toucher aux parties intimes des autres.", opts: [
+      { q: "Les règles d'or, c'est seulement pour les adultes ?", fb: "Personne ne touche tes parties intimes : ni un adulte, ni un enfant, petit ou grand. Si ça arrive, tu parles à un adulte de confiance.", opts: [
         { i: "🧑‍🤝‍🧑", l: "Non, c'est pour tout le monde : les adultes et les enfants", ok: true }, { i: "🧑", l: "Oui, seulement pour les adultes", fb: "C'est vrai pour les adultes, mais pas que. Regarde l'autre réponse." }] },
       { q: "Et toi, peux-tu toucher les parties intimes d'un·e autre enfant ?", fb: "Non. La règle est la même pour tout le monde, pour toi aussi.", opts: [
         { i: "🛑", l: "Non, la règle est la même pour moi", ok: true }, { i: "🤷", l: "Oui, si c'est pour rire", fb: "Même pour rire, c'est non. Essaie encore !" }] },
