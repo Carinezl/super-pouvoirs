@@ -53,10 +53,10 @@ const GAMES = {
     { q: "Et ses pieds ?", zone: "pieds", fb: "Oui, les pieds ! Toi aussi, tu as tout ça. Tu connais ton corps." }] }],
 
   2: [{ type: "figure", suit: "#1d2fa8", stripes: true, prompts: [
-      { q: "Bonhomme est en slip de bain. Touche ce qui est caché sous son slip de bain.", zone: "maillot", fb: "Oui ! Les parties intimes, ce sont les parties du corps que cachent les sous-vêtements et le maillot de bain : les fesses, le sexe, et aussi la poitrine. Elles sont à toi." }] },
+      { q: "Bonhomme est en slip de bain. Touche ce qui est caché sous son slip de bain.", zone: "maillot", fb: "Oui ! Les parties intimes, ce sont les parties du corps que cachent les sous-vêtements et le maillot de bain : les fesses, le sexe, et aussi la poitrine et les tétons. Elles sont à toi.", wait: 4500 }] }, // texte long : 1,5 s de lecture en plus
     { type: "doit", btn: "Je l'ai dit !", steps: [
       { i: "🗣️", l: "Les fesses", say: "Les fesses. Tout le monde en a !" },
-      { i: "🗣️", l: "La poitrine", say: "La poitrine. Tout le monde en a une !" },
+      { i: "🗣️", l: "La poitrine et les tétons", say: "La poitrine et les tétons. Tout le monde en a !" },
       { i: "🗣️", l: "La vulve", say: "La vulve. C'est le mot exact pour les filles." },
       { i: "🗣️", l: "Le pénis et les testicules", say: "Le pénis et les testicules. Ce sont les mots exacts pour les garçons." }] },
     { type: "quiz", rounds: [{ q: "Qui utilise ces mots exacts ?", fb: "Oui ! Les docteurs, et toi aussi maintenant.", opts: [
@@ -339,10 +339,10 @@ const Jeux = (function () {
   const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; if (tag === "button") e.type = "button"; return e; };
   // Après une bonne réponse : la suite arrive toute seule au bout de 3 secondes, ou tout de suite avec « Continuer ».
   const WAIT = 3000;
-  function goOn(ctx, m, fn) {
+  function goOn(ctx, m, fn, ms) {
     let done = false; const row = el("div", "center go-row"), b = el("button", "cta go", "Continuer");
     const run = () => { if (done) return; done = true; row.remove(); fn(); };
-    b.onclick = run; row.append(b); m.append(row); ctx.later(run, WAIT);
+    b.onclick = run; row.append(b); m.append(row); ctx.later(run, ms || WAIT);
     if (row.scrollIntoView) row.scrollIntoView({ block: "nearest", behavior: "smooth" });
   }
   const shuffle = (a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
@@ -542,7 +542,7 @@ const Jeux = (function () {
     fig.querySelector("svg").setAttribute("role", "group");
     const pick = (e) => {
       const g = e.target.closest("[data-zone]"), P = st.prompts[p]; if (!g || !P) return;
-      if (g.dataset.zone === P.zone) { g.classList.add("hit"); ctx.say(P.fb); p++; goOn(ctx, m, () => { g.classList.remove("hit"); ask(); }); }
+      if (g.dataset.zone === P.zone) { g.classList.add("hit"); ctx.say(P.fb); p++; goOn(ctx, m, () => { g.classList.remove("hit"); ask(); }, P.wait); }
       else { shake(fig); ctx.say("Presque ! Essaie encore."); const bub = document.getElementById("sayText"); if (bub && bub.scrollIntoView) bub.scrollIntoView({ block: "nearest", behavior: "smooth" }); } // sur téléphone, la bulle peut être hors de l'écran
     };
     fig.querySelector("svg").addEventListener("click", pick);
