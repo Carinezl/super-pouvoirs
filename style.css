@@ -703,3 +703,6 @@ footer{max-width:820px;gap:12px}
 .scene-find .found{filter:url(#foundGlow)}
 /* Téléphone (3 colonnes) : la porte 24 est au centre de la dernière ligne */
 @media (max-width:520px){.cell.c-door{order:1}.cell.c-end{order:2}}
+/* Porte 24 réussie : la couronne reste, derrière le personnage */
+.win.done .wreath{display:block}
+.win.door.done .pane svg.wreath{top:auto;bottom:0;width:90%;transform:translate(-50%,-14%)} /* autour de la tête du personnage, quelle que soit la forme de la porte */
